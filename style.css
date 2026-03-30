@@ -5,6 +5,14 @@
   --color04: yellow;
   --border: dashed 0.2rem var(--color04);
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color01: white;
+    --color02: black;
+  }
+}
+
 body {
   background-color: (var(--color01));
 }
@@ -17,7 +25,7 @@ main {
 }
 
 .stageContainer {
-  background-color: coral;
+  background-color: var(--color02);
   flex: 1;
   cursor: crosshair;
 }
