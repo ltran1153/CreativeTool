@@ -1,11 +1,23 @@
+:root {
+  --color01: black;
+  --color02: white;
+  --color03: coral;
+  --color04: yellow;
+  --border: dashed 0.2rem var(--color04);
+}
+body {
+  background-color: (var(--color01));
+}
 main {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--color01);
+  border: var(--border);
 }
 
 .stageContainer {
-    background-color: coral;
-    flex: 1;
-    cursor: crosshair;
+  background-color: coral;
+  flex: 1;
+  cursor: crosshair;
 }
