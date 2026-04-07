@@ -16,7 +16,7 @@ const stage = new Konva.Stage({
 //how does it interact with other features?
 //color, brush texture, eraser, upload image
 
-const adjectiveLayer = new konva.layer()
+const adjectiveLayer = new Konva.Layer()
 stage.add(adjectiveLayer)
 
 const adjectivesList = [
@@ -26,5 +26,65 @@ const adjectivesList = [
   "Bamboozled",
   "Preposterous",
 ]
-const Xtranslation = Math.random() * stage.width()
-const Ytranslation = Math.random() * stage.height()
+
+const boxes = []
+const padding = 10
+
+adjectivesList.forEach((word) => {
+  const text = new Konva.Text({
+    text: word,
+    fontSize: 24,
+    fontFamily: "Arial",
+    fill: "white",
+  })
+
+  const button = new Konva.Rect({
+    width: text.width(),
+    height: text.height(),
+    fill: "blue",
+    cornerRadius: 5,
+  })
+
+  let x, y
+  let valid = false
+
+  while (!valid) {
+    x = Math.random() * (stage.width() - text.width())
+    y = Math.random() * (stage.height() - text.height())
+
+    const newBox = {
+      x: x - padding,
+      y: y - padding,
+      width: text.width() + padding * 2,
+      height: text.height() + padding * 2,
+    }
+
+    valid = true
+
+    boxes.forEach((box) => {
+      const overlap =
+        newBox.x < box.x + box.width &&
+        newBox.x + newBox.width > box.x &&
+        newBox.y < box.y + box.height &&
+        newBox.y + newBox.height > box.y
+
+      if (overlap) {
+        valid = false
+      }
+    })
+
+    if (valid) {
+      button.position({ x, y })
+      text.position({ x, y })
+
+      adjectiveLayer.add(button)
+      adjectiveLayer.add(text)
+
+      boxes.push(newBox)
+    }
+  }
+})
+
+adjectiveLayer.draw()
+
+adjectiveLayer.draw()
