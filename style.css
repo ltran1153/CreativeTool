@@ -27,5 +27,4 @@ main {
 .stageContainer {
   background-color: var(--color02);
   flex: 1;
-  cursor: crosshair;
 }

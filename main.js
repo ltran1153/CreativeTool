@@ -1,8 +1,8 @@
 // create the konva stage
 const stage = new Konva.Stage({
   container: "konva-stage",
-  width: 500,
-  height: 500,
+  width: 1000,
+  height: 1000,
 })
 
 //drawing feature
@@ -29,6 +29,7 @@ const adjectivesList = [
 
 const boxes = []
 const padding = 10
+const gap = 10
 
 adjectivesList.forEach((word) => {
   const text = new Konva.Text({
@@ -36,27 +37,34 @@ adjectivesList.forEach((word) => {
     fontSize: 24,
     fontFamily: "Arial",
     fill: "white",
+    x: padding,
+    y: padding,
   })
 
-  const button = new Konva.Rect({
-    width: text.width(),
-    height: text.height(),
+  const rect = new Konva.Rect({
+    width: text.width() + padding * 2,
+    height: text.height() + padding * 2,
     fill: "blue",
     cornerRadius: 5,
   })
 
-  let x, y
+  const button = new Konva.Group()
+
+  button.add(rect)
+  button.add(text)
+
   let valid = false
+  let x, y
 
   while (!valid) {
-    x = Math.random() * (stage.width() - text.width())
-    y = Math.random() * (stage.height() - text.height())
+    x = Math.random() * (stage.width() - rect.width())
+    y = Math.random() * (stage.height() - rect.height())
 
     const newBox = {
-      x: x - padding,
-      y: y - padding,
-      width: text.width() + padding * 2,
-      height: text.height() + padding * 2,
+      x: x - gap,
+      y: y - gap,
+      width: rect.width() + gap * 2,
+      height: rect.height() + gap * 2,
     }
 
     valid = true
@@ -75,16 +83,25 @@ adjectivesList.forEach((word) => {
 
     if (valid) {
       button.position({ x, y })
-      text.position({ x, y })
-
-      adjectiveLayer.add(button)
-      adjectiveLayer.add(text)
-
       boxes.push(newBox)
     }
   }
-})
 
-adjectiveLayer.draw()
+  button.on("click", () => {
+    rect.fill("green")
+    adjectiveLayer.draw()
+    console.log("Clicked word:", word)
+  })
+
+  button.on("mouseover", () => {
+    document.body.style.cursor = "pointer"
+  })
+
+  button.on("mouseout", () => {
+    document.body.style.cursor = "default"
+  })
+
+  adjectiveLayer.add(button)
+})
 
 adjectiveLayer.draw()
