@@ -142,6 +142,7 @@ twentyAdjectives.forEach((word) => {
     updateStory()
     rect.fill("green")
     adjectiveLayer.hide()
+
     verbLayer.show()
     verbLayer.draw()
     adjectiveLayer.draw()
