@@ -60,13 +60,28 @@ const adjectivesList = [
   "Bamboozled",
   "Preposterous",
 ]
+//Fisher Yates random array shuffling equation.
+function shuffleWords(array) {
+  const shuffledWords = [...array] // copy array
+
+  for (let i = shuffledWords.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+
+    // swap elements
+    ;[shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]]
+  }
+
+  return shuffledWords
+}
 
 const boxes = []
 const padding = 10
 const gap = 10
 
 //Adjective Layer
-adjectivesList.forEach((word) => {
+const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 4)
+
+twentyAdjectives.forEach((word) => {
   const text = new Konva.Text({
     text: word,
     fontSize: 24,
@@ -123,6 +138,8 @@ adjectivesList.forEach((word) => {
   }
 
   button.on("click", () => {
+    selectedWords.adjective = word
+    updateStory()
     rect.fill("green")
     adjectiveLayer.hide()
     verbLayer.show()
@@ -145,7 +162,8 @@ adjectivesList.forEach((word) => {
 adjectiveLayer.draw()
 
 //Verb Layer
-verbsList.forEach((word) => {
+const twentyVerbs = shuffleWords(verbsList).slice(0, 4)
+twentyVerbs.forEach((word) => {
   const text = new Konva.Text({
     text: word,
     fontSize: 24,
@@ -202,6 +220,8 @@ verbsList.forEach((word) => {
   }
 
   button.on("click", () => {
+    selectedWords.verb = word
+    updateStory()
     rect.fill("green")
     verbLayer.hide()
     nounLayer.show()
@@ -224,7 +244,8 @@ verbsList.forEach((word) => {
 verbLayer.draw()
 
 //Noun Layer
-nounsList.forEach((word) => {
+const twentyNouns = shuffleWords(nounsList).slice(0, 4)
+twentyNouns.forEach((word) => {
   const text = new Konva.Text({
     text: word,
     fontSize: 24,
@@ -281,6 +302,8 @@ nounsList.forEach((word) => {
   }
 
   button.on("click", () => {
+    selectedWords.noun = word
+    updateStory()
     rect.fill("green")
     nounLayer.hide()
     prepositionLayer.show()
@@ -303,7 +326,8 @@ nounsList.forEach((word) => {
 nounLayer.draw()
 
 //Preposition Layer
-prepositionsList.forEach((word) => {
+const twentyPrepositions = shuffleWords(prepositionsList).slice(0, 4)
+twentyPrepositions.forEach((word) => {
   const text = new Konva.Text({
     text: word,
     fontSize: 24,
@@ -360,6 +384,8 @@ prepositionsList.forEach((word) => {
   }
 
   button.on("click", () => {
+    selectedWords.preposition = word
+    updateStory()
     rect.fill("green")
     prepositionLayer.hide()
     adverbLayer.show()
@@ -383,7 +409,8 @@ prepositionLayer.draw()
 
 //Adverb Layer
 
-adverbsList.forEach((word) => {
+const twentyAdverbs = shuffleWords(adverbsList).slice(0, 4)
+twentyAdverbs.forEach((word) => {
   const text = new Konva.Text({
     text: word,
     fontSize: 24,
@@ -440,6 +467,8 @@ adverbsList.forEach((word) => {
   }
 
   button.on("click", () => {
+    selectedWords.adverb = word
+    updateStory()
     rect.fill("green")
     adverbLayer.hide()
     storyLayer.show()
@@ -462,11 +491,37 @@ adverbsList.forEach((word) => {
 adverbLayer.draw()
 
 //Story Layer
+const selectedWords = {
+  adjective: "",
+  verb: "",
+  noun: "",
+  preposition: "",
+  adverb: "",
+}
+const storyTemplateList = [
+  "The (noun) (adverb) (verb) over the (adjective) cave (preposition) the dark mountain.",
+  "A (adjective) (noun) decided to (verb) (adverb) (preposition) the ancient ruins.",
+  "The (noun) (verb) (adverb) through the (adjective) forest (preposition) the hidden lake.",
+  "One (adjective) (noun) tried to (verb) (adverb) (preposition) the mysterious castle.",
+  "A (noun) began to (verb) (adverb) (preposition) the (adjective) valley.",
+]
+function updateStory() {
+  const storyTemplate =
+    storyTemplateList[Math.floor(Math.random() * storyTemplateList.length)]
+  const filledStory = storyTemplate
+    .replace("(noun)", selectedWords.noun)
+    .replace("(adverb)", selectedWords.adverb)
+    .replace("(verb)", selectedWords.verb)
+    .replace("(adjective)", selectedWords.adjective)
+    .replace("(preposition)", selectedWords.preposition)
+
+  story.text(filledStory)
+  storyLayer.draw()
+}
 const story = new Konva.Text({
   x: 10,
   y: 10,
   width: stage.width() - 40, // keep it inside the stage
-  text: "The (noun) (adverb) (verb) over the (adjective) cave (preposition) the dark mountain.",
   fontSize: 30,
   fontFamily: "Arial",
   fill: "white",
