@@ -562,6 +562,7 @@ resetButton.add(resetText)
 
 resetButton.on("click", () => {
   resetContainer.fill("green")
+  boxes.length = 0
 
   adjectiveLayer.destroyChildren()
   verbLayer.destroyChildren()
