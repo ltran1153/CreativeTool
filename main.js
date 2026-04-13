@@ -1,8 +1,8 @@
 // create the konva stage
 const stage = new Konva.Stage({
   container: "konva-stage",
-  width: 1000,
-  height: 1000,
+  width: 800,
+  height: 500,
 })
 
 //drawing feature
@@ -78,7 +78,7 @@ function shuffleWords(array) {
 }
 
 const boxes = []
-const padding = 10
+const padding = 1
 const gap = 10
 
 //Adjective Layer
@@ -97,8 +97,6 @@ twentyAdjectives.forEach((word) => {
   const rect = new Konva.Rect({
     width: text.width() + padding * 2,
     height: text.height() + padding * 2,
-    fill: "blue",
-    cornerRadius: 5,
   })
 
   const button = new Konva.Group()
@@ -143,7 +141,6 @@ twentyAdjectives.forEach((word) => {
   button.on("click", () => {
     selectedWords.adjective = word
     updateStory()
-    rect.fill("green")
     adjectiveLayer.hide()
 
     verbLayer.show()
@@ -180,8 +177,6 @@ twentyVerbs.forEach((word) => {
   const rect = new Konva.Rect({
     width: text.width() + padding * 2,
     height: text.height() + padding * 2,
-    fill: "blue",
-    cornerRadius: 5,
   })
 
   const button = new Konva.Group()
@@ -226,7 +221,6 @@ twentyVerbs.forEach((word) => {
   button.on("click", () => {
     selectedWords.verb = word
     updateStory()
-    rect.fill("green")
     verbLayer.hide()
     nounLayer.show()
     verbLayer.draw()
@@ -262,8 +256,6 @@ twentyNouns.forEach((word) => {
   const rect = new Konva.Rect({
     width: text.width() + padding * 2,
     height: text.height() + padding * 2,
-    fill: "blue",
-    cornerRadius: 5,
   })
 
   const button = new Konva.Group()
@@ -308,7 +300,6 @@ twentyNouns.forEach((word) => {
   button.on("click", () => {
     selectedWords.noun = word
     updateStory()
-    rect.fill("green")
     nounLayer.hide()
     prepositionLayer.show()
     nounLayer.draw()
@@ -344,8 +335,6 @@ twentyPrepositions.forEach((word) => {
   const rect = new Konva.Rect({
     width: text.width() + padding * 2,
     height: text.height() + padding * 2,
-    fill: "blue",
-    cornerRadius: 5,
   })
 
   const button = new Konva.Group()
@@ -390,7 +379,6 @@ twentyPrepositions.forEach((word) => {
   button.on("click", () => {
     selectedWords.preposition = word
     updateStory()
-    rect.fill("green")
     prepositionLayer.hide()
     adverbLayer.show()
     prepositionLayer.draw()
@@ -427,8 +415,6 @@ twentyAdverbs.forEach((word) => {
   const rect = new Konva.Rect({
     width: text.width() + padding * 2,
     height: text.height() + padding * 2,
-    fill: "blue",
-    cornerRadius: 5,
   })
 
   const button = new Konva.Group()
@@ -473,7 +459,6 @@ twentyAdverbs.forEach((word) => {
   button.on("click", () => {
     selectedWords.adverb = word
     updateStory()
-    rect.fill("green")
     adverbLayer.hide()
     storyLayer.show()
     resetLayer.show()
@@ -536,6 +521,7 @@ const story = new Konva.Text({
 storyLayer.add(story)
 storyLayer.draw()
 
+//Reset the tool to generate a new story.
 const resetText = new Konva.Text({
   text: "New Story?",
   fontSize: 24,
@@ -587,8 +573,6 @@ resetButton.on("click", () => {
     const rect = new Konva.Rect({
       width: text.width() + padding * 2,
       height: text.height() + padding * 2,
-      fill: "blue",
-      cornerRadius: 5,
     })
 
     const button = new Konva.Group()
@@ -633,7 +617,6 @@ resetButton.on("click", () => {
     button.on("click", () => {
       selectedWords.adjective = word
       updateStory()
-      rect.fill("green")
       adjectiveLayer.hide()
 
       verbLayer.show()
@@ -670,8 +653,6 @@ resetButton.on("click", () => {
     const rect = new Konva.Rect({
       width: text.width() + padding * 2,
       height: text.height() + padding * 2,
-      fill: "blue",
-      cornerRadius: 5,
     })
 
     const button = new Konva.Group()
@@ -716,7 +697,6 @@ resetButton.on("click", () => {
     button.on("click", () => {
       selectedWords.verb = word
       updateStory()
-      rect.fill("green")
       verbLayer.hide()
       nounLayer.show()
       verbLayer.draw()
@@ -752,8 +732,6 @@ resetButton.on("click", () => {
     const rect = new Konva.Rect({
       width: text.width() + padding * 2,
       height: text.height() + padding * 2,
-      fill: "blue",
-      cornerRadius: 5,
     })
 
     const button = new Konva.Group()
@@ -798,7 +776,6 @@ resetButton.on("click", () => {
     button.on("click", () => {
       selectedWords.noun = word
       updateStory()
-      rect.fill("green")
       nounLayer.hide()
       prepositionLayer.show()
       nounLayer.draw()
@@ -834,8 +811,6 @@ resetButton.on("click", () => {
     const rect = new Konva.Rect({
       width: text.width() + padding * 2,
       height: text.height() + padding * 2,
-      fill: "blue",
-      cornerRadius: 5,
     })
 
     const button = new Konva.Group()
@@ -880,7 +855,6 @@ resetButton.on("click", () => {
     button.on("click", () => {
       selectedWords.preposition = word
       updateStory()
-      rect.fill("green")
       prepositionLayer.hide()
       adverbLayer.show()
       prepositionLayer.draw()
@@ -917,8 +891,6 @@ resetButton.on("click", () => {
     const rect = new Konva.Rect({
       width: text.width() + padding * 2,
       height: text.height() + padding * 2,
-      fill: "blue",
-      cornerRadius: 5,
     })
 
     const button = new Konva.Group()
@@ -963,7 +935,6 @@ resetButton.on("click", () => {
     button.on("click", () => {
       selectedWords.adverb = word
       updateStory()
-      rect.fill("green")
       adverbLayer.hide()
       storyLayer.show()
       resetLayer.show()
