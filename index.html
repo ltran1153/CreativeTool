@@ -13,16 +13,31 @@
 
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="other.js" defer></script>
     <script src="main.js" defer></script>
   </head>
   <body>
+    <dialog id="Warning">
+      <p id="dialogtext">This Page Contains loud noises and flashing lights</p>
+      <button id="Acknowledged" type="button">GOTCHU</button>
+    </dialog>
+
     <main>
+      <div></div>
       <div class="toolBar"></div>
 
       <div class="stageContainer" id="stage-container">
+        <div id="bardContainer">
+          <img src="assets/bard.png" id="bard" alt="bard" />
+          <div id="dialogue">
+            <p>
+              Hello traveler! Choose your words
+              wiselyfdsafdafadsfadsfasfasdfsfads dsfdsfad fdsfdas fdafs.
+            </p>
+          </div>
+        </div>
         <div id="konva-stage"></div>
       </div>
     </main>
   </body>
 </html>
-  

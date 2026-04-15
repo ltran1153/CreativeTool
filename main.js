@@ -1,8 +1,8 @@
 // create the konva stage
 const stage = new Konva.Stage({
   container: "konva-stage",
-  width: 800,
-  height: 500,
+  width: 600,
+  height: 400,
 })
 
 //drawing feature
@@ -46,22 +46,274 @@ const adverbsList = [
   "Jovially",
   "Reluctantly",
   "Rampantly",
+  "Quickly",
+  "Slowly",
+  "Awkwardly",
+  "Gracefully",
+  "Loudly",
+  "Silently",
+  "Boldly",
+  "Carefully",
+  "Hastily",
+  "Eagerly",
+  "Suspiciously",
+  "Mysteriously",
+  "Wildly",
+  "Clumsily",
+  "Bravely",
+  "Foolishly",
+  "Cheerfully",
+  "Gleefully",
+  "Sadly",
+  "Angrily",
+  "Sneakily",
+  "Suddenly",
+  "Abruptly",
+  "Calmly",
+  "Curiously",
+  "Oddly",
+  "Strangely",
+  "Madly",
+  "Playfully",
+  "Proudly",
+  "Reluctantly",
+  "Shakily",
+  "Sleepily",
+  "Smoothly",
+  "Softly",
+  "Speedily",
+  "Stealthily",
+  "Swiftly",
+  "Tightly",
+  "Triumphantly",
+  "Unusually",
+  "Warmly",
+  "Wickedly",
+  "Wildly",
+  "Briskly",
+  "Gently",
+  "Patiently",
+  "Carelessly",
+  "Fearfully",
+  "Joyfully",
 ]
 const prepositionsList = [
+  "Above",
+  "Across",
+  "Against",
+  "Along",
   "Among",
+  "Around",
+  "At",
+  "Before",
+  "Behind",
+  "Below",
+  "Beneath",
+  "Beside",
   "Between",
+  "Beyond",
+  "By",
+  "Inside",
+  "Into",
+  "Near",
+  "Next to",
+  "On",
+  "Onto",
+  "Opposite",
+  "Outside",
+  "Over",
+  "Past",
+  "Through",
+  "Toward",
+  "Under",
   "Underneath",
-  "Graced with",
-  "Lack of",
+  "Upon",
+  "Within",
+  "Without",
+  "Around",
+  "Across from",
+  "Alongside",
+  "Amid",
+  "Amongst",
+  "Against",
+  "Beforehand",
+  "Behind",
+  "Beneath",
+  "Beside",
+  "Beyond",
+  "Close to",
+  "Far from",
+  "In front of",
+  "In",
+  "Off",
+  "Toward",
+  "Up",
 ]
-const nounsList = ["Tomfoolery", "Chicken", "Soup", "Confusion", "Cash"]
-const verbsList = ["Wheedle", "Flap", "Bamboozle", "Blindside", "Castigate"]
+const nounsList = [
+  "Tomfoolery",
+  "Chicken",
+  "Soup",
+  "Confusion",
+  "Cash",
+  "Goblin",
+  "Banana",
+  "Wizard",
+  "Toaster",
+  "Dragon",
+  "Pickle",
+  "Knight",
+  "Hamster",
+  "Cactus",
+  "Pirate",
+  "Mushroom",
+  "Robot",
+  "Penguin",
+  "Sock",
+  "Unicorn",
+  "Taco",
+  "Ghost",
+  "Cheesecake",
+  "Noodle",
+  "Alien",
+  "Sloth",
+  "Duck",
+  "Llama",
+  "Sandwich",
+  "Jellyfish",
+  "Breadstick",
+  "Vampire",
+  "Squirrel",
+  "Meatball",
+  "Spaceship",
+  "Octopus",
+  "Pancake",
+  "Dinosaur",
+  "Cupcake",
+  "Ninja",
+  "Parrot",
+  "Frog",
+  "Burrito",
+  "Mermaid",
+  "Potato",
+  "Crab",
+  "Icecream",
+  "Turtle",
+  "Monster",
+  "Balloon",
+  "Chicken",
+  "Marshmallow",
+  "Fox",
+  "Donut",
+  "Skeleton",
+]
+const verbsList = [
+  "Wheedle",
+  "Flap",
+  "Bamboozle",
+  "Blindside",
+  "Castigate",
+  "Bounce",
+  "Wobble",
+  "Sprint",
+  "Sneak",
+  "Gobble",
+  "Whisper",
+  "Charge",
+  "Tiptoe",
+  "Climb",
+  "Slither",
+  "Zoom",
+  "Crash",
+  "Shuffle",
+  "Glide",
+  "Stumble",
+  "Spin",
+  "Juggle",
+  "Chase",
+  "Tumble",
+  "Leap",
+  "Drift",
+  "Scream",
+  "Laugh",
+  "Slink",
+  "Twist",
+  "Slide",
+  "Dodge",
+  "Bump",
+  "Poke",
+  "Kick",
+  "Toss",
+  "Shake",
+  "Snatch",
+  "Chomp",
+  "Blink",
+  "Wander",
+  "March",
+  "Charge",
+  "Flutter",
+  "Roar",
+  "Hover",
+  "Splash",
+  "Dig",
+  "Hop",
+  "Peek",
+  "Dash",
+  "Lurk",
+  "Fumble",
+  "Creep",
+  "Snicker",
+]
 const adjectivesList = [
-  "Sublime",
-  "Quaint",
-  "Altruistic",
   "Bamboozled",
   "Preposterous",
+  "Absurd",
+  "Wobbly",
+  "Goofy",
+  "Quirky",
+  "Zany",
+  "Ridiculous",
+  "Peculiar",
+  "Silly",
+  "Lopsided",
+  "Flabbergasted",
+  "Whimsical",
+  "Wonky",
+  "Cheeky",
+  "Bizarre",
+  "Dorky",
+  "Snazzy",
+  "Cranky",
+  "Sassy",
+  "Clumsy",
+  "Shiny",
+  "Squishy",
+  "Slippery",
+  "Jittery",
+  "Giddy",
+  "Grumpy",
+  "Sneaky",
+  "Wacky",
+  "Nutty",
+  "Dazzling",
+  "Funky",
+  "Mysterious",
+  "Dreadful",
+  "Gigantic",
+  "Tiny",
+  "Glorious",
+  "Hilarious",
+  "Sparkly",
+  "Dramatic",
+  "Chaotic",
+  "Curious",
+  "Sleepy",
+  "Crooked",
+  "Greedy",
+  "Noisy",
+  "Sticky",
+  "Spooky",
+  "Bouncy",
+  "Fluffy",
 ]
 //Fisher Yates random array shuffling equation.
 function shuffleWords(array) {
@@ -77,17 +329,23 @@ function shuffleWords(array) {
   return shuffledWords
 }
 
-const boxes = []
+const adjectiveBoxes = []
+const verbBoxes = []
+const nounBoxes = []
+const prepositionBoxes = []
+const adverbBoxes = []
 const padding = 1
-const gap = 10
+const gap = 4
+const widthMargin = 40
+const heightMargin = 30
 
 //Adjective Layer
-const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 4)
+const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 20)
 
 twentyAdjectives.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 24,
+    fontSize: 17,
     fontFamily: "Arial",
     fill: "white",
     x: padding,
@@ -108,8 +366,12 @@ twentyAdjectives.forEach((word) => {
   let x, y
 
   while (!valid) {
-    x = Math.random() * (stage.width() - rect.width())
-    y = Math.random() * (stage.height() - rect.height())
+    x =
+      widthMargin +
+      Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+    y =
+      heightMargin +
+      Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
     const newBox = {
       x: x - gap,
@@ -120,7 +382,7 @@ twentyAdjectives.forEach((word) => {
 
     valid = true
 
-    boxes.forEach((box) => {
+    adjectiveBoxes.forEach((box) => {
       const overlap =
         newBox.x < box.x + box.width &&
         newBox.x + newBox.width > box.x &&
@@ -134,7 +396,7 @@ twentyAdjectives.forEach((word) => {
 
     if (valid) {
       button.position({ x, y })
-      boxes.push(newBox)
+      adjectiveBoxes.push(newBox)
     }
   }
 
@@ -163,11 +425,11 @@ twentyAdjectives.forEach((word) => {
 adjectiveLayer.draw()
 
 //Verb Layer
-const twentyVerbs = shuffleWords(verbsList).slice(0, 4)
+const twentyVerbs = shuffleWords(verbsList).slice(0, 20)
 twentyVerbs.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 24,
+    fontSize: 17,
     fontFamily: "Arial",
     fill: "white",
     x: padding,
@@ -188,8 +450,12 @@ twentyVerbs.forEach((word) => {
   let x, y
 
   while (!valid) {
-    x = Math.random() * (stage.width() - rect.width())
-    y = Math.random() * (stage.height() - rect.height())
+    x =
+      widthMargin +
+      Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+    y =
+      heightMargin +
+      Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
     const newBox = {
       x: x - gap,
@@ -200,7 +466,7 @@ twentyVerbs.forEach((word) => {
 
     valid = true
 
-    boxes.forEach((box) => {
+    verbBoxes.forEach((box) => {
       const overlap =
         newBox.x < box.x + box.width &&
         newBox.x + newBox.width > box.x &&
@@ -214,7 +480,7 @@ twentyVerbs.forEach((word) => {
 
     if (valid) {
       button.position({ x, y })
-      boxes.push(newBox)
+      verbBoxes.push(newBox)
     }
   }
 
@@ -242,11 +508,11 @@ twentyVerbs.forEach((word) => {
 verbLayer.draw()
 
 //Noun Layer
-const twentyNouns = shuffleWords(nounsList).slice(0, 4)
+const twentyNouns = shuffleWords(nounsList).slice(0, 20)
 twentyNouns.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 24,
+    fontSize: 17,
     fontFamily: "Arial",
     fill: "white",
     x: padding,
@@ -267,8 +533,12 @@ twentyNouns.forEach((word) => {
   let x, y
 
   while (!valid) {
-    x = Math.random() * (stage.width() - rect.width())
-    y = Math.random() * (stage.height() - rect.height())
+    x =
+      widthMargin +
+      Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+    y =
+      heightMargin +
+      Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
     const newBox = {
       x: x - gap,
@@ -279,7 +549,7 @@ twentyNouns.forEach((word) => {
 
     valid = true
 
-    boxes.forEach((box) => {
+    nounBoxes.forEach((box) => {
       const overlap =
         newBox.x < box.x + box.width &&
         newBox.x + newBox.width > box.x &&
@@ -293,7 +563,7 @@ twentyNouns.forEach((word) => {
 
     if (valid) {
       button.position({ x, y })
-      boxes.push(newBox)
+      nounBoxes.push(newBox)
     }
   }
 
@@ -321,11 +591,11 @@ twentyNouns.forEach((word) => {
 nounLayer.draw()
 
 //Preposition Layer
-const twentyPrepositions = shuffleWords(prepositionsList).slice(0, 4)
+const twentyPrepositions = shuffleWords(prepositionsList).slice(0, 20)
 twentyPrepositions.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 24,
+    fontSize: 17,
     fontFamily: "Arial",
     fill: "white",
     x: padding,
@@ -346,8 +616,12 @@ twentyPrepositions.forEach((word) => {
   let x, y
 
   while (!valid) {
-    x = Math.random() * (stage.width() - rect.width())
-    y = Math.random() * (stage.height() - rect.height())
+    x =
+      widthMargin +
+      Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+    y =
+      heightMargin +
+      Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
     const newBox = {
       x: x - gap,
@@ -358,7 +632,7 @@ twentyPrepositions.forEach((word) => {
 
     valid = true
 
-    boxes.forEach((box) => {
+    prepositionBoxes.forEach((box) => {
       const overlap =
         newBox.x < box.x + box.width &&
         newBox.x + newBox.width > box.x &&
@@ -372,7 +646,7 @@ twentyPrepositions.forEach((word) => {
 
     if (valid) {
       button.position({ x, y })
-      boxes.push(newBox)
+      prepositionBoxes.push(newBox)
     }
   }
 
@@ -401,11 +675,11 @@ prepositionLayer.draw()
 
 //Adverb Layer
 
-const twentyAdverbs = shuffleWords(adverbsList).slice(0, 4)
+const twentyAdverbs = shuffleWords(adverbsList).slice(0, 20)
 twentyAdverbs.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 24,
+    fontSize: 17,
     fontFamily: "Arial",
     fill: "white",
     x: padding,
@@ -426,8 +700,12 @@ twentyAdverbs.forEach((word) => {
   let x, y
 
   while (!valid) {
-    x = Math.random() * (stage.width() - rect.width())
-    y = Math.random() * (stage.height() - rect.height())
+    x =
+      widthMargin +
+      Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+    y =
+      heightMargin +
+      Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
     const newBox = {
       x: x - gap,
@@ -438,7 +716,7 @@ twentyAdverbs.forEach((word) => {
 
     valid = true
 
-    boxes.forEach((box) => {
+    adverbBoxes.forEach((box) => {
       const overlap =
         newBox.x < box.x + box.width &&
         newBox.x + newBox.width > box.x &&
@@ -452,7 +730,7 @@ twentyAdverbs.forEach((word) => {
 
     if (valid) {
       button.position({ x, y })
-      boxes.push(newBox)
+      adverbBoxes.push(newBox)
     }
   }
 
@@ -548,7 +826,11 @@ resetButton.add(resetText)
 
 resetButton.on("click", () => {
   resetContainer.fill("green")
-  boxes.length = 0
+  adjectiveBoxes.length = 0
+  verbBoxes.length = 0
+  nounBoxes.length = 0
+  prepositionBoxes.length = 0
+  adverbBoxes.length = 0
 
   adjectiveLayer.destroyChildren()
   verbLayer.destroyChildren()
@@ -558,12 +840,12 @@ resetButton.on("click", () => {
   storyLayer.destroyChildren()
 
   //Adjective Layer
-  const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 4)
+  const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 20)
 
   twentyAdjectives.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 24,
+      fontSize: 17,
       fontFamily: "Arial",
       fill: "white",
       x: padding,
@@ -584,8 +866,12 @@ resetButton.on("click", () => {
     let x, y
 
     while (!valid) {
-      x = Math.random() * (stage.width() - rect.width())
-      y = Math.random() * (stage.height() - rect.height())
+      x =
+        widthMargin +
+        Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+      y =
+        heightMargin +
+        Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
       const newBox = {
         x: x - gap,
@@ -596,7 +882,7 @@ resetButton.on("click", () => {
 
       valid = true
 
-      boxes.forEach((box) => {
+      adjectiveBoxes.forEach((box) => {
         const overlap =
           newBox.x < box.x + box.width &&
           newBox.x + newBox.width > box.x &&
@@ -610,7 +896,7 @@ resetButton.on("click", () => {
 
       if (valid) {
         button.position({ x, y })
-        boxes.push(newBox)
+        adjectiveBoxes.push(newBox)
       }
     }
 
@@ -639,11 +925,11 @@ resetButton.on("click", () => {
   adjectiveLayer.draw()
 
   //Verb Layer
-  const twentyVerbs = shuffleWords(verbsList).slice(0, 4)
+  const twentyVerbs = shuffleWords(verbsList).slice(0, 20)
   twentyVerbs.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 24,
+      fontSize: 17,
       fontFamily: "Arial",
       fill: "white",
       x: padding,
@@ -664,8 +950,12 @@ resetButton.on("click", () => {
     let x, y
 
     while (!valid) {
-      x = Math.random() * (stage.width() - rect.width())
-      y = Math.random() * (stage.height() - rect.height())
+      x =
+        widthMargin +
+        Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+      y =
+        heightMargin +
+        Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
       const newBox = {
         x: x - gap,
@@ -676,7 +966,7 @@ resetButton.on("click", () => {
 
       valid = true
 
-      boxes.forEach((box) => {
+      verbBoxes.forEach((box) => {
         const overlap =
           newBox.x < box.x + box.width &&
           newBox.x + newBox.width > box.x &&
@@ -690,7 +980,7 @@ resetButton.on("click", () => {
 
       if (valid) {
         button.position({ x, y })
-        boxes.push(newBox)
+        verbBoxes.push(newBox)
       }
     }
 
@@ -718,11 +1008,11 @@ resetButton.on("click", () => {
   verbLayer.draw()
 
   //Noun Layer
-  const twentyNouns = shuffleWords(nounsList).slice(0, 4)
+  const twentyNouns = shuffleWords(nounsList).slice(0, 20)
   twentyNouns.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 24,
+      fontSize: 17,
       fontFamily: "Arial",
       fill: "white",
       x: padding,
@@ -743,8 +1033,12 @@ resetButton.on("click", () => {
     let x, y
 
     while (!valid) {
-      x = Math.random() * (stage.width() - rect.width())
-      y = Math.random() * (stage.height() - rect.height())
+      x =
+        widthMargin +
+        Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+      y =
+        heightMargin +
+        Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
       const newBox = {
         x: x - gap,
@@ -755,7 +1049,7 @@ resetButton.on("click", () => {
 
       valid = true
 
-      boxes.forEach((box) => {
+      nounBoxes.forEach((box) => {
         const overlap =
           newBox.x < box.x + box.width &&
           newBox.x + newBox.width > box.x &&
@@ -769,7 +1063,7 @@ resetButton.on("click", () => {
 
       if (valid) {
         button.position({ x, y })
-        boxes.push(newBox)
+        nounBoxes.push(newBox)
       }
     }
 
@@ -797,11 +1091,11 @@ resetButton.on("click", () => {
   nounLayer.draw()
 
   //Preposition Layer
-  const twentyPrepositions = shuffleWords(prepositionsList).slice(0, 4)
+  const twentyPrepositions = shuffleWords(prepositionsList).slice(0, 20)
   twentyPrepositions.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 24,
+      fontSize: 17,
       fontFamily: "Arial",
       fill: "white",
       x: padding,
@@ -822,8 +1116,12 @@ resetButton.on("click", () => {
     let x, y
 
     while (!valid) {
-      x = Math.random() * (stage.width() - rect.width())
-      y = Math.random() * (stage.height() - rect.height())
+      x =
+        widthMargin +
+        Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+      y =
+        heightMargin +
+        Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
       const newBox = {
         x: x - gap,
@@ -834,7 +1132,7 @@ resetButton.on("click", () => {
 
       valid = true
 
-      boxes.forEach((box) => {
+      prepositionBoxes.forEach((box) => {
         const overlap =
           newBox.x < box.x + box.width &&
           newBox.x + newBox.width > box.x &&
@@ -848,7 +1146,7 @@ resetButton.on("click", () => {
 
       if (valid) {
         button.position({ x, y })
-        boxes.push(newBox)
+        prepositionBoxes.push(newBox)
       }
     }
 
@@ -877,11 +1175,11 @@ resetButton.on("click", () => {
 
   //Adverb Layer
 
-  const twentyAdverbs = shuffleWords(adverbsList).slice(0, 4)
+  const twentyAdverbs = shuffleWords(adverbsList).slice(0, 20)
   twentyAdverbs.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 24,
+      fontSize: 17,
       fontFamily: "Arial",
       fill: "white",
       x: padding,
@@ -902,8 +1200,12 @@ resetButton.on("click", () => {
     let x, y
 
     while (!valid) {
-      x = Math.random() * (stage.width() - rect.width())
-      y = Math.random() * (stage.height() - rect.height())
+      x =
+        widthMargin +
+        Math.random() * (stage.width() - rect.width() - widthMargin * 2)
+      y =
+        heightMargin +
+        Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
       const newBox = {
         x: x - gap,
@@ -914,7 +1216,7 @@ resetButton.on("click", () => {
 
       valid = true
 
-      boxes.forEach((box) => {
+      adverbBoxes.forEach((box) => {
         const overlap =
           newBox.x < box.x + box.width &&
           newBox.x + newBox.width > box.x &&
@@ -928,7 +1230,7 @@ resetButton.on("click", () => {
 
       if (valid) {
         button.position({ x, y })
-        boxes.push(newBox)
+        adverbBoxes.push(newBox)
       }
     }
 
