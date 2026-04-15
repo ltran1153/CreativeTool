@@ -5,17 +5,6 @@ const stage = new Konva.Stage({
   height: 400,
 })
 
-//drawing feature
-//feature analysis
-//User goal: trying to draw a picture?
-//represented model? cursor on canvas, defined canvas, brush select, brush size
-//color? or would that be its own system
-//how does it behave?
-//move our cursor onto canvas. press mouse button down, move mouse, release mouse button
-// what is the implement model? create a new line when mouse down, add that to line when mouse moves
-//how does it interact with other features?
-//color, brush texture, eraser, upload image
-
 const adjectiveLayer = new Konva.Layer()
 const verbLayer = new Konva.Layer()
 const nounLayer = new Konva.Layer()
@@ -345,9 +334,11 @@ const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 20)
 twentyAdjectives.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 17,
-    fontFamily: "Arial",
+    fontSize: 20,
+    fontFamily: "Julee",
     fill: "white",
+    stroke: "green",
+    strokeWidth: "0.45",
     x: padding,
     y: padding,
   })
@@ -402,10 +393,11 @@ twentyAdjectives.forEach((word) => {
 
   button.on("click", () => {
     selectedWords.adjective = word
+
     updateStory()
     adjectiveLayer.hide()
-
     verbLayer.show()
+    updateDialogue()
     verbLayer.draw()
     adjectiveLayer.draw()
     console.log("Clicked word:", word)
@@ -413,10 +405,24 @@ twentyAdjectives.forEach((word) => {
 
   button.on("mouseover", () => {
     document.body.style.cursor = "pointer"
+    button.scale({ x: 1.3, y: 1.3 })
+
+    text.shadowColor("white")
+    text.shadowBlur(15)
+    text.shadowOpacity(0.9)
+    adjectiveLayer.draw()
   })
 
   button.on("mouseout", () => {
     document.body.style.cursor = "default"
+    text.fontSize(20)
+    button.scale({ x: 1, y: 1 })
+
+    text.shadowColor("none")
+    text.shadowBlur(0)
+    text.shadowOpacity(0)
+
+    adjectiveLayer.draw()
   })
 
   adjectiveLayer.add(button)
@@ -429,9 +435,11 @@ const twentyVerbs = shuffleWords(verbsList).slice(0, 20)
 twentyVerbs.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 17,
-    fontFamily: "Arial",
+    fontSize: 20,
+    fontFamily: "Julee",
     fill: "white",
+    stroke: "green",
+    strokeWidth: "0.45",
     x: padding,
     y: padding,
   })
@@ -489,6 +497,7 @@ twentyVerbs.forEach((word) => {
     updateStory()
     verbLayer.hide()
     nounLayer.show()
+    updateDialogue()
     verbLayer.draw()
     nounLayer.draw()
     console.log("Clicked word:", word)
@@ -496,10 +505,24 @@ twentyVerbs.forEach((word) => {
 
   button.on("mouseover", () => {
     document.body.style.cursor = "pointer"
+    button.scale({ x: 1.3, y: 1.3 })
+
+    text.shadowColor("white")
+    text.shadowBlur(15)
+    text.shadowOpacity(0.9)
+    verbLayer.draw()
   })
 
   button.on("mouseout", () => {
     document.body.style.cursor = "default"
+    text.fontSize(20)
+    button.scale({ x: 1, y: 1 })
+
+    text.shadowColor("none")
+    text.shadowBlur(0)
+    text.shadowOpacity(0)
+
+    verbLayer.draw()
   })
 
   verbLayer.add(button)
@@ -512,9 +535,11 @@ const twentyNouns = shuffleWords(nounsList).slice(0, 20)
 twentyNouns.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 17,
-    fontFamily: "Arial",
+    fontSize: 20,
+    fontFamily: "Julee",
     fill: "white",
+    stroke: "green",
+    strokeWidth: "0.45",
     x: padding,
     y: padding,
   })
@@ -572,6 +597,7 @@ twentyNouns.forEach((word) => {
     updateStory()
     nounLayer.hide()
     prepositionLayer.show()
+    updateDialogue()
     nounLayer.draw()
     prepositionLayer.draw()
     console.log("Clicked word:", word)
@@ -579,10 +605,24 @@ twentyNouns.forEach((word) => {
 
   button.on("mouseover", () => {
     document.body.style.cursor = "pointer"
+    button.scale({ x: 1.3, y: 1.3 })
+
+    text.shadowColor("white")
+    text.shadowBlur(15)
+    text.shadowOpacity(0.9)
+    nounLayer.draw()
   })
 
   button.on("mouseout", () => {
     document.body.style.cursor = "default"
+    text.fontSize(20)
+    button.scale({ x: 1, y: 1 })
+
+    text.shadowColor("none")
+    text.shadowBlur(0)
+    text.shadowOpacity(0)
+
+    nounLayer.draw()
   })
 
   nounLayer.add(button)
@@ -595,9 +635,11 @@ const twentyPrepositions = shuffleWords(prepositionsList).slice(0, 20)
 twentyPrepositions.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 17,
-    fontFamily: "Arial",
+    fontSize: 20,
+    fontFamily: "Julee",
     fill: "white",
+    stroke: "green",
+    strokeWidth: "0.45",
     x: padding,
     y: padding,
   })
@@ -655,6 +697,7 @@ twentyPrepositions.forEach((word) => {
     updateStory()
     prepositionLayer.hide()
     adverbLayer.show()
+    updateDialogue()
     prepositionLayer.draw()
     adverbLayer.draw()
     console.log("Clicked word:", word)
@@ -662,12 +705,25 @@ twentyPrepositions.forEach((word) => {
 
   button.on("mouseover", () => {
     document.body.style.cursor = "pointer"
+    button.scale({ x: 1.3, y: 1.3 })
+
+    text.shadowColor("white")
+    text.shadowBlur(15)
+    text.shadowOpacity(0.9)
+    prepositionLayer.draw()
   })
 
   button.on("mouseout", () => {
     document.body.style.cursor = "default"
-  })
+    text.fontSize(20)
+    button.scale({ x: 1, y: 1 })
 
+    text.shadowColor("none")
+    text.shadowBlur(0)
+    text.shadowOpacity(0)
+
+    prepositionLayer.draw()
+  })
   prepositionLayer.add(button)
 })
 
@@ -679,9 +735,11 @@ const twentyAdverbs = shuffleWords(adverbsList).slice(0, 20)
 twentyAdverbs.forEach((word) => {
   const text = new Konva.Text({
     text: word,
-    fontSize: 17,
-    fontFamily: "Arial",
+    fontSize: 20,
+    fontFamily: "Julee",
     fill: "white",
+    stroke: "green",
+    strokeWidth: "0.45",
     x: padding,
     y: padding,
   })
@@ -740,6 +798,7 @@ twentyAdverbs.forEach((word) => {
     adverbLayer.hide()
     storyLayer.show()
     resetLayer.show()
+    updateDialogue()
     resetLayer.draw()
     adverbLayer.draw()
     storyLayer.draw()
@@ -748,10 +807,24 @@ twentyAdverbs.forEach((word) => {
 
   button.on("mouseover", () => {
     document.body.style.cursor = "pointer"
+    button.scale({ x: 1.3, y: 1.3 })
+
+    text.shadowColor("white")
+    text.shadowBlur(15)
+    text.shadowOpacity(0.9)
+    adverbLayer.draw()
   })
 
   button.on("mouseout", () => {
     document.body.style.cursor = "default"
+    text.fontSize(20)
+    button.scale({ x: 1, y: 1 })
+
+    text.shadowColor("none")
+    text.shadowBlur(0)
+    text.shadowOpacity(0)
+
+    adverbLayer.draw()
   })
 
   adverbLayer.add(button)
@@ -792,7 +865,7 @@ const story = new Konva.Text({
   y: 10,
   width: stage.width() - 40, // keep it inside the stage
   fontSize: 30,
-  fontFamily: "Arial",
+  fontFamily: "Eagle Lake",
   fill: "white",
 })
 
@@ -803,7 +876,7 @@ storyLayer.draw()
 const resetText = new Konva.Text({
   text: "New Story?",
   fontSize: 24,
-  fontFamily: "Arial",
+  fontFamily: "Eagle Lake",
   fill: "white",
   x: padding,
   y: padding,
@@ -845,9 +918,11 @@ resetButton.on("click", () => {
   twentyAdjectives.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 17,
-      fontFamily: "Arial",
+      fontSize: 20,
+      fontFamily: "Julee",
       fill: "white",
+      stroke: "green",
+      strokeWidth: "0.45",
       x: padding,
       y: padding,
     })
@@ -906,6 +981,7 @@ resetButton.on("click", () => {
       adjectiveLayer.hide()
 
       verbLayer.show()
+      updateDialogue()
       verbLayer.draw()
       adjectiveLayer.draw()
       console.log("Clicked word:", word)
@@ -913,10 +989,24 @@ resetButton.on("click", () => {
 
     button.on("mouseover", () => {
       document.body.style.cursor = "pointer"
+      button.scale({ x: 1.3, y: 1.3 })
+
+      text.shadowColor("white")
+      text.shadowBlur(15)
+      text.shadowOpacity(0.9)
+      adjectiveLayer.draw()
     })
 
     button.on("mouseout", () => {
       document.body.style.cursor = "default"
+      text.fontSize(20)
+      button.scale({ x: 1, y: 1 })
+
+      text.shadowColor("none")
+      text.shadowBlur(0)
+      text.shadowOpacity(0)
+
+      adjectiveLayer.draw()
     })
 
     adjectiveLayer.add(button)
@@ -929,9 +1019,11 @@ resetButton.on("click", () => {
   twentyVerbs.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 17,
-      fontFamily: "Arial",
+      fontSize: 20,
+      fontFamily: "Julee",
       fill: "white",
+      stroke: "green",
+      strokeWidth: "0.45",
       x: padding,
       y: padding,
     })
@@ -989,6 +1081,7 @@ resetButton.on("click", () => {
       updateStory()
       verbLayer.hide()
       nounLayer.show()
+      updateDialogue()
       verbLayer.draw()
       nounLayer.draw()
       console.log("Clicked word:", word)
@@ -996,10 +1089,24 @@ resetButton.on("click", () => {
 
     button.on("mouseover", () => {
       document.body.style.cursor = "pointer"
+      button.scale({ x: 1.3, y: 1.3 })
+
+      text.shadowColor("white")
+      text.shadowBlur(15)
+      text.shadowOpacity(0.9)
+      verbLayer.draw()
     })
 
     button.on("mouseout", () => {
       document.body.style.cursor = "default"
+      text.fontSize(20)
+      button.scale({ x: 1, y: 1 })
+
+      text.shadowColor("none")
+      text.shadowBlur(0)
+      text.shadowOpacity(0)
+
+      verbLayer.draw()
     })
 
     verbLayer.add(button)
@@ -1012,9 +1119,11 @@ resetButton.on("click", () => {
   twentyNouns.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 17,
-      fontFamily: "Arial",
+      fontSize: 20,
+      fontFamily: "Julee",
       fill: "white",
+      stroke: "green",
+      strokeWidth: "0.45",
       x: padding,
       y: padding,
     })
@@ -1072,6 +1181,7 @@ resetButton.on("click", () => {
       updateStory()
       nounLayer.hide()
       prepositionLayer.show()
+      updateDialogue()
       nounLayer.draw()
       prepositionLayer.draw()
       console.log("Clicked word:", word)
@@ -1079,10 +1189,24 @@ resetButton.on("click", () => {
 
     button.on("mouseover", () => {
       document.body.style.cursor = "pointer"
+      button.scale({ x: 1.3, y: 1.3 })
+
+      text.shadowColor("white")
+      text.shadowBlur(15)
+      text.shadowOpacity(0.9)
+      nounLayer.draw()
     })
 
     button.on("mouseout", () => {
       document.body.style.cursor = "default"
+      text.fontSize(20)
+      button.scale({ x: 1, y: 1 })
+
+      text.shadowColor("none")
+      text.shadowBlur(0)
+      text.shadowOpacity(0)
+
+      nounLayer.draw()
     })
 
     nounLayer.add(button)
@@ -1095,9 +1219,11 @@ resetButton.on("click", () => {
   twentyPrepositions.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 17,
-      fontFamily: "Arial",
+      fontSize: 20,
+      fontFamily: "Julee",
       fill: "white",
+      stroke: "green",
+      strokeWidth: "0.45",
       x: padding,
       y: padding,
     })
@@ -1155,6 +1281,7 @@ resetButton.on("click", () => {
       updateStory()
       prepositionLayer.hide()
       adverbLayer.show()
+      updateDialogue()
       prepositionLayer.draw()
       adverbLayer.draw()
       console.log("Clicked word:", word)
@@ -1162,10 +1289,24 @@ resetButton.on("click", () => {
 
     button.on("mouseover", () => {
       document.body.style.cursor = "pointer"
+      button.scale({ x: 1.3, y: 1.3 })
+
+      text.shadowColor("white")
+      text.shadowBlur(15)
+      text.shadowOpacity(0.9)
+      prepositionLayer.draw()
     })
 
     button.on("mouseout", () => {
       document.body.style.cursor = "default"
+      text.fontSize(20)
+      button.scale({ x: 1, y: 1 })
+
+      text.shadowColor("none")
+      text.shadowBlur(0)
+      text.shadowOpacity(0)
+
+      prepositionLayer.draw()
     })
 
     prepositionLayer.add(button)
@@ -1179,9 +1320,11 @@ resetButton.on("click", () => {
   twentyAdverbs.forEach((word) => {
     const text = new Konva.Text({
       text: word,
-      fontSize: 17,
-      fontFamily: "Arial",
+      fontSize: 20,
+      fontFamily: "Julee",
       fill: "white",
+      stroke: "green",
+      strokeWidth: "0.45",
       x: padding,
       y: padding,
     })
@@ -1240,6 +1383,7 @@ resetButton.on("click", () => {
       adverbLayer.hide()
       storyLayer.show()
       resetLayer.show()
+      updateDialogue()
       resetLayer.draw()
       adverbLayer.draw()
       storyLayer.draw()
@@ -1248,10 +1392,24 @@ resetButton.on("click", () => {
 
     button.on("mouseover", () => {
       document.body.style.cursor = "pointer"
+      button.scale({ x: 1.3, y: 1.3 })
+
+      text.shadowColor("white")
+      text.shadowBlur(15)
+      text.shadowOpacity(0.9)
+      adverbLayer.draw()
     })
 
     button.on("mouseout", () => {
       document.body.style.cursor = "default"
+      text.fontSize(20)
+      button.scale({ x: 1, y: 1 })
+
+      text.shadowColor("none")
+      text.shadowBlur(0)
+      text.shadowOpacity(0)
+
+      adverbLayer.draw()
     })
 
     adverbLayer.add(button)
@@ -1292,7 +1450,7 @@ resetButton.on("click", () => {
     y: 10,
     width: stage.width() - 40, // keep it inside the stage
     fontSize: 30,
-    fontFamily: "Arial",
+    fontFamily: "Eagle Lake",
     fill: "white",
   })
 
@@ -1306,7 +1464,7 @@ resetButton.on("click", () => {
   adjectiveLayer.show()
   verbLayer.hide()
   nounLayer.hide()
-
+  updateDialogue()
   resetLayer.draw()
   adjectiveLayer.draw()
   verbLayer.draw()
@@ -1325,3 +1483,22 @@ resetButton.on("mouseout", () => {
 })
 resetLayer.add(resetButton)
 resetLayer.draw()
+
+//Character dialogue box
+const bardDialogue = document.getElementById("dialogue")
+function updateDialogue() {
+  if (adjectiveLayer.visible()) {
+    bardDialogue.textContent =
+      "hmmm, lets try something else. \n Select an adjective"
+  } else if (verbLayer.visible()) {
+    bardDialogue.textContent = "Select a verb"
+  } else if (nounLayer.visible()) {
+    bardDialogue.textContent = "Select a noun"
+  } else if (prepositionLayer.visible()) {
+    bardDialogue.textContent = "Select a preposition"
+  } else if (adverbLayer.visible()) {
+    bardDialogue.textContent = "Select an adverb"
+  } else if (storyLayer.visible()) {
+    bardDialogue.textContent = "I just wrote absolute cinema!"
+  }
+}
