@@ -17,20 +17,29 @@
     <script src="main.js" defer></script>
   </head>
   <body>
+    <audio loop id="ambient">
+      <source src="assets/Ambient.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="guitar">
+      <source src="assets/Guitar.mp3" type="audio/mpeg" />
+    </audio>
     <dialog id="Warning">
       <p id="dialogtext">This Page Contains loud noises and flashing lights</p>
       <button id="Acknowledged" type="button">Enter</button>
     </dialog>
 
     <main>
-      <div></div>
+      <div id="uiButtons">
+        <button id="ambientOn" type="button">Ambient: On</button>
+      </div>
       <div class="toolBar"></div>
 
       <div class="stageContainer" id="stage-container">
         <div id="bardContainer">
           <img src="assets/bard.png" id="bard" alt="bard" />
-          <div id="dialogue">   
-              hmmm, what story to tell? <br> Select an adjective
+          <div id="dialogue">
+            hmmm, what story to tell? <br />
+            Select an adjective
           </div>
         </div>
         <div id="konva-stage"></div>

@@ -799,6 +799,7 @@ twentyAdverbs.forEach((word) => {
     storyLayer.show()
     resetLayer.show()
     updateDialogue()
+    playGuitar()
     resetLayer.draw()
     adverbLayer.draw()
     storyLayer.draw()
@@ -1380,10 +1381,12 @@ resetButton.on("click", () => {
     button.on("click", () => {
       selectedWords.adverb = word
       updateStory()
+
       adverbLayer.hide()
       storyLayer.show()
       resetLayer.show()
       updateDialogue()
+      playGuitar()
       resetLayer.draw()
       adverbLayer.draw()
       storyLayer.draw()
@@ -1465,6 +1468,7 @@ resetButton.on("click", () => {
   verbLayer.hide()
   nounLayer.hide()
   updateDialogue()
+  playAmbient()
   resetLayer.draw()
   adjectiveLayer.draw()
   verbLayer.draw()
@@ -1501,4 +1505,18 @@ function updateDialogue() {
   } else if (storyLayer.visible()) {
     bardDialogue.textContent = "I just wrote absolute cinema!"
   }
+}
+
+//Sound functions
+
+const ambient = document.getElementById("ambient")
+const guitar = document.getElementById("guitar")
+
+function playAmbient() {
+  guitar.pause()
+  ambient.play()
+}
+function playGuitar() {
+  ambient.pause()
+  guitar.play()
 }
