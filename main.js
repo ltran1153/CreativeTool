@@ -393,7 +393,7 @@ twentyAdjectives.forEach((word) => {
 
   button.on("click", () => {
     selectedWords.adjective = word
-
+    playClick()
     updateStory()
     adjectiveLayer.hide()
     verbLayer.show()
@@ -494,6 +494,7 @@ twentyVerbs.forEach((word) => {
 
   button.on("click", () => {
     selectedWords.verb = word
+    playClick()
     updateStory()
     verbLayer.hide()
     nounLayer.show()
@@ -594,6 +595,7 @@ twentyNouns.forEach((word) => {
 
   button.on("click", () => {
     selectedWords.noun = word
+    playClick()
     updateStory()
     nounLayer.hide()
     prepositionLayer.show()
@@ -694,6 +696,7 @@ twentyPrepositions.forEach((word) => {
 
   button.on("click", () => {
     selectedWords.preposition = word
+    playClick()
     updateStory()
     prepositionLayer.hide()
     adverbLayer.show()
@@ -794,6 +797,7 @@ twentyAdverbs.forEach((word) => {
 
   button.on("click", () => {
     selectedWords.adverb = word
+    playClick()
     updateStory()
     adverbLayer.hide()
     storyLayer.show()
@@ -976,6 +980,7 @@ resetButton.on("click", () => {
 
     button.on("click", () => {
       selectedWords.adjective = word
+      playClick()
       updateStory()
       adjectiveLayer.hide()
 
@@ -1077,6 +1082,7 @@ resetButton.on("click", () => {
 
     button.on("click", () => {
       selectedWords.verb = word
+      playClick()
       updateStory()
       verbLayer.hide()
       nounLayer.show()
@@ -1177,6 +1183,7 @@ resetButton.on("click", () => {
 
     button.on("click", () => {
       selectedWords.noun = word
+      playClick()
       updateStory()
       nounLayer.hide()
       prepositionLayer.show()
@@ -1277,6 +1284,7 @@ resetButton.on("click", () => {
 
     button.on("click", () => {
       selectedWords.preposition = word
+      playClick()
       updateStory()
       prepositionLayer.hide()
       adverbLayer.show()
@@ -1378,6 +1386,7 @@ resetButton.on("click", () => {
 
     button.on("click", () => {
       selectedWords.adverb = word
+      playClick()
       updateStory()
 
       adverbLayer.hide()
@@ -1517,9 +1526,14 @@ function updateDialogue() {
 
 //Sound functions
 
+const click = document.getElementById("click")
 const ambient = document.getElementById("ambient")
 const guitar = document.getElementById("guitar")
 
+function playClick() {
+  click.currentTime = 0
+  click.play()
+}
 function playAmbient() {
   guitar.pause()
   ambient.play()

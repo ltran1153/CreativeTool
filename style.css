@@ -66,9 +66,12 @@ without [open] display:flex; interferes with the button and dialog function*/
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
+  text-align: center;
+  justify-content: center;
 }
 
 #dialogtext {
+  
   font-family: Nova Script;
 }
 
