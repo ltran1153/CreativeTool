@@ -116,3 +116,28 @@ without [open] display:flex; interferes with the button and dialog function*/
   justify-content: center;
   padding-top: 20px;
 }
+
+#link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 10px;
+  color: rgb(255, 255, 255);
+}
+
+#linkTooltip {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  width: 200px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  display: none;
+}
+
+#link:hover ~ #linkTooltip {
+  display: block;
+}
