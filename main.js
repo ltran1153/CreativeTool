@@ -325,8 +325,8 @@ const prepositionBoxes = []
 const adverbBoxes = []
 const padding = 1
 const gap = 4
-const widthMargin = 40
-const heightMargin = 30
+const widthMargin = 62
+const heightMargin = 52
 
 //Adjective Layer
 const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 20)
@@ -336,7 +336,7 @@ twentyAdjectives.forEach((word) => {
     text: word,
     fontSize: 20,
     fontFamily: "Julee",
-    fill: "white",
+    fill: "black",
     stroke: "green",
     strokeWidth: "0.45",
     x: padding,
@@ -407,9 +407,9 @@ twentyAdjectives.forEach((word) => {
     document.body.style.cursor = "pointer"
     button.scale({ x: 1.3, y: 1.3 })
 
-    text.shadowColor("white")
-    text.shadowBlur(15)
-    text.shadowOpacity(0.9)
+    text.shadowColor("yellow")
+    text.shadowBlur(12)
+    text.shadowOpacity(1.0)
     adjectiveLayer.draw()
   })
 
@@ -437,7 +437,7 @@ twentyVerbs.forEach((word) => {
     text: word,
     fontSize: 20,
     fontFamily: "Julee",
-    fill: "white",
+    fill: "black",
     stroke: "green",
     strokeWidth: "0.45",
     x: padding,
@@ -507,8 +507,8 @@ twentyVerbs.forEach((word) => {
     document.body.style.cursor = "pointer"
     button.scale({ x: 1.3, y: 1.3 })
 
-    text.shadowColor("white")
-    text.shadowBlur(15)
+    text.shadowColor("yellow")
+    text.shadowBlur(12)
     text.shadowOpacity(0.9)
     verbLayer.draw()
   })
@@ -537,7 +537,7 @@ twentyNouns.forEach((word) => {
     text: word,
     fontSize: 20,
     fontFamily: "Julee",
-    fill: "white",
+    fill: "black",
     stroke: "green",
     strokeWidth: "0.45",
     x: padding,
@@ -607,8 +607,8 @@ twentyNouns.forEach((word) => {
     document.body.style.cursor = "pointer"
     button.scale({ x: 1.3, y: 1.3 })
 
-    text.shadowColor("white")
-    text.shadowBlur(15)
+    text.shadowColor("yellow")
+    text.shadowBlur(12)
     text.shadowOpacity(0.9)
     nounLayer.draw()
   })
@@ -637,7 +637,7 @@ twentyPrepositions.forEach((word) => {
     text: word,
     fontSize: 20,
     fontFamily: "Julee",
-    fill: "white",
+    fill: "black",
     stroke: "green",
     strokeWidth: "0.45",
     x: padding,
@@ -707,8 +707,8 @@ twentyPrepositions.forEach((word) => {
     document.body.style.cursor = "pointer"
     button.scale({ x: 1.3, y: 1.3 })
 
-    text.shadowColor("white")
-    text.shadowBlur(15)
+    text.shadowColor("yellow")
+    text.shadowBlur(12)
     text.shadowOpacity(0.9)
     prepositionLayer.draw()
   })
@@ -737,7 +737,7 @@ twentyAdverbs.forEach((word) => {
     text: word,
     fontSize: 20,
     fontFamily: "Julee",
-    fill: "white",
+    fill: "black",
     stroke: "green",
     strokeWidth: "0.45",
     x: padding,
@@ -810,8 +810,8 @@ twentyAdverbs.forEach((word) => {
     document.body.style.cursor = "pointer"
     button.scale({ x: 1.3, y: 1.3 })
 
-    text.shadowColor("white")
-    text.shadowBlur(15)
+    text.shadowColor("yellow")
+    text.shadowBlur(12)
     text.shadowOpacity(0.9)
     adverbLayer.draw()
   })
@@ -867,7 +867,7 @@ const story = new Konva.Text({
   width: stage.width() - 40, // keep it inside the stage
   fontSize: 30,
   fontFamily: "Eagle Lake",
-  fill: "white",
+  fill: "black",
 })
 
 storyLayer.add(story)
@@ -878,7 +878,7 @@ const resetText = new Konva.Text({
   text: "New Story?",
   fontSize: 24,
   fontFamily: "Eagle Lake",
-  fill: "white",
+  fill: "black",
   x: padding,
   y: padding,
 })
@@ -886,7 +886,6 @@ const resetText = new Konva.Text({
 const resetContainer = new Konva.Rect({
   width: resetText.width() + padding * 2,
   height: resetText.height() + padding * 2,
-  fill: "blue",
   cornerRadius: 5,
 })
 
@@ -921,7 +920,7 @@ resetButton.on("click", () => {
       text: word,
       fontSize: 20,
       fontFamily: "Julee",
-      fill: "white",
+      fill: "black",
       stroke: "green",
       strokeWidth: "0.45",
       x: padding,
@@ -992,8 +991,8 @@ resetButton.on("click", () => {
       document.body.style.cursor = "pointer"
       button.scale({ x: 1.3, y: 1.3 })
 
-      text.shadowColor("white")
-      text.shadowBlur(15)
+      text.shadowColor("yellow")
+      text.shadowBlur(12)
       text.shadowOpacity(0.9)
       adjectiveLayer.draw()
     })
@@ -1022,7 +1021,7 @@ resetButton.on("click", () => {
       text: word,
       fontSize: 20,
       fontFamily: "Julee",
-      fill: "white",
+      fill: "black",
       stroke: "green",
       strokeWidth: "0.45",
       x: padding,
@@ -1092,8 +1091,8 @@ resetButton.on("click", () => {
       document.body.style.cursor = "pointer"
       button.scale({ x: 1.3, y: 1.3 })
 
-      text.shadowColor("white")
-      text.shadowBlur(15)
+      text.shadowColor("yellow")
+      text.shadowBlur(12)
       text.shadowOpacity(0.9)
       verbLayer.draw()
     })
@@ -1122,7 +1121,7 @@ resetButton.on("click", () => {
       text: word,
       fontSize: 20,
       fontFamily: "Julee",
-      fill: "white",
+      fill: "black",
       stroke: "green",
       strokeWidth: "0.45",
       x: padding,
@@ -1192,8 +1191,8 @@ resetButton.on("click", () => {
       document.body.style.cursor = "pointer"
       button.scale({ x: 1.3, y: 1.3 })
 
-      text.shadowColor("white")
-      text.shadowBlur(15)
+      text.shadowColor("yellow")
+      text.shadowBlur(12)
       text.shadowOpacity(0.9)
       nounLayer.draw()
     })
@@ -1222,7 +1221,7 @@ resetButton.on("click", () => {
       text: word,
       fontSize: 20,
       fontFamily: "Julee",
-      fill: "white",
+      fill: "black",
       stroke: "green",
       strokeWidth: "0.45",
       x: padding,
@@ -1292,8 +1291,8 @@ resetButton.on("click", () => {
       document.body.style.cursor = "pointer"
       button.scale({ x: 1.3, y: 1.3 })
 
-      text.shadowColor("white")
-      text.shadowBlur(15)
+      text.shadowColor("yellow")
+      text.shadowBlur(12)
       text.shadowOpacity(0.9)
       prepositionLayer.draw()
     })
@@ -1323,7 +1322,7 @@ resetButton.on("click", () => {
       text: word,
       fontSize: 20,
       fontFamily: "Julee",
-      fill: "white",
+      fill: "black",
       stroke: "green",
       strokeWidth: "0.45",
       x: padding,
@@ -1397,8 +1396,8 @@ resetButton.on("click", () => {
       document.body.style.cursor = "pointer"
       button.scale({ x: 1.3, y: 1.3 })
 
-      text.shadowColor("white")
-      text.shadowBlur(15)
+      text.shadowColor("yellow")
+      text.shadowBlur(12)
       text.shadowOpacity(0.9)
       adverbLayer.draw()
     })
@@ -1454,7 +1453,7 @@ resetButton.on("click", () => {
     width: stage.width() - 40, // keep it inside the stage
     fontSize: 30,
     fontFamily: "Eagle Lake",
-    fill: "white",
+    fill: "black",
   })
 
   storyLayer.add(story)
