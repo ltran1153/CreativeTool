@@ -862,12 +862,14 @@ function updateStory() {
   storyLayer.draw()
 }
 const story = new Konva.Text({
-  x: 10,
-  y: 10,
-  width: stage.width() - 40, // keep it inside the stage
-  fontSize: 30,
+  x: 60,
+  y: 50,
+  width: stage.width() - 60 * 2,
+  height: stage.height() - 40 * 2,
+  fontSize: 24,
   fontFamily: "Eagle Lake",
   fill: "black",
+  lineHeight: 1.3,
 })
 
 storyLayer.add(story)
@@ -876,17 +878,15 @@ storyLayer.draw()
 //Reset the tool to generate a new story.
 const resetText = new Konva.Text({
   text: "New Story?",
-  fontSize: 24,
+  fontSize: 30,
   fontFamily: "Eagle Lake",
   fill: "black",
-  x: padding,
-  y: padding,
 })
+resetText.position({ x: 190, y: 145 })
 
 const resetContainer = new Konva.Rect({
-  width: resetText.width() + padding * 2,
-  height: resetText.height() + padding * 2,
-  cornerRadius: 5,
+  width: resetText.width() + 24,
+  height: resetText.height() + 16,
 })
 
 const resetButton = new Konva.Group({
@@ -898,7 +898,6 @@ resetButton.add(resetContainer)
 resetButton.add(resetText)
 
 resetButton.on("click", () => {
-  resetContainer.fill("green")
   adjectiveBoxes.length = 0
   verbBoxes.length = 0
   nounBoxes.length = 0
@@ -1448,12 +1447,14 @@ resetButton.on("click", () => {
     storyLayer.draw()
   }
   const story = new Konva.Text({
-    x: 10,
-    y: 10,
-    width: stage.width() - 40, // keep it inside the stage
-    fontSize: 30,
+    x: 60,
+    y: 50,
+    width: stage.width() - 60 * 2,
+    height: stage.height() - 40 * 2,
+    fontSize: 24,
     fontFamily: "Eagle Lake",
     fill: "black",
+    lineHeight: 1.3,
   })
 
   storyLayer.add(story)
@@ -1479,10 +1480,18 @@ resetButton.on("click", () => {
 
 resetButton.on("mouseover", () => {
   document.body.style.cursor = "pointer"
+
+  resetText.shadowColor("yellow")
+  resetText.shadowBlur(12)
+  resetText.shadowOpacity(0.9)
 })
 
 resetButton.on("mouseout", () => {
   document.body.style.cursor = "default"
+
+  resetText.shadowColor("none")
+  resetText.shadowBlur(0)
+  resetText.shadowOpacity(0)
 })
 resetLayer.add(resetButton)
 resetLayer.draw()

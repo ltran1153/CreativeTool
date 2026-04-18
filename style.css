@@ -108,7 +108,7 @@ without [open] display:flex; interferes with the button and dialog function*/
   align-items: center;
   text-align: center;
 
-  background: rgba(255, 255, 255, 0.603);
+  background: rgba(142, 235, 114, 0.603);
   border-radius: 10px;
 
   z-index: 10; /* ensures it sits above the bard */
