@@ -5,6 +5,7 @@ const stage = new Konva.Stage({
   height: 400,
 })
 
+// a different layer for every different word class or content
 const adjectiveLayer = new Konva.Layer()
 const verbLayer = new Konva.Layer()
 const nounLayer = new Konva.Layer()
@@ -13,6 +14,7 @@ const adverbLayer = new Konva.Layer()
 const storyLayer = new Konva.Layer()
 const resetLayer = new Konva.Layer()
 
+// add these layers to the konva stage
 stage.add(storyLayer)
 stage.add(adverbLayer)
 stage.add(prepositionLayer)
@@ -21,6 +23,13 @@ stage.add(verbLayer)
 stage.add(nounLayer)
 stage.add(resetLayer)
 
+//The way that this project functions is that selecting a word from one layer
+// will immediately take users to the next one, until they progress to the final story,
+// where there will be a reset button, which will take users back to the
+// beginning, and start over again with a different seed of words.
+
+// hide all except adjective layer, as it will be the
+// first layer users will see entering the project
 resetLayer.hide()
 storyLayer.hide()
 adverbLayer.hide()
@@ -29,6 +38,7 @@ adjectiveLayer.show()
 verbLayer.hide()
 nounLayer.hide()
 
+//50 words for adverbs
 const adverbsList = [
   "Hopelessly",
   "Obediently",
@@ -86,6 +96,8 @@ const adverbsList = [
   "Fearfully",
   "Joyfully",
 ]
+
+// 50 words for prepositions
 const prepositionsList = [
   "Above",
   "Across",
@@ -138,6 +150,7 @@ const prepositionsList = [
   "Toward",
   "Up",
 ]
+//50 words for nouns
 const nounsList = [
   "Tomfoolery",
   "Chicken",
@@ -195,6 +208,7 @@ const nounsList = [
   "Donut",
   "Skeleton",
 ]
+//50 words for verbs
 const verbsList = [
   "Wheedle",
   "Flap",
@@ -252,6 +266,8 @@ const verbsList = [
   "Creep",
   "Snicker",
 ]
+
+// 50 words for adjectives
 const adjectivesList = [
   "Bamboozled",
   "Preposterous",
@@ -304,14 +320,14 @@ const adjectivesList = [
   "Bouncy",
   "Fluffy",
 ]
-//Fisher Yates random array shuffling equation.
+//Fisher Yates random array shuffling algorithm. This is a well known algorithm by web developers.
+// It is considered one of the best ways to generate pseudo random seeds for arrays.
+// I copied this algorithm from https://dev.to/tanvir_azad/fisher-yates-shuffle-the-right-way-to-randomize-an-array-4d2p
 function shuffleWords(array) {
-  const shuffledWords = [...array] // copy array
+  const shuffledWords = [...array]
 
   for (let i = shuffledWords.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-
-    // swap elements
     ;[shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]]
   }
 
@@ -323,15 +339,31 @@ const verbBoxes = []
 const nounBoxes = []
 const prepositionBoxes = []
 const adverbBoxes = []
+//This const will be used to adjust placement of my elements,
+//and will always be considered 1 pixel
 const padding = 1
+
+//This const will be used to ensure that no two words can be overlapped with one another
+// by ensuring that each word must always be at least the gap distance away from each other
 const gap = 4
+
+//This const will be used as a margin for my stage, to ensure that words will only
+// be generated inside an area closer to the center of the stage
 const widthMargin = 62
 const heightMargin = 52
 
+//The functions and ideas behind the adjective layer will be repeated for the
+// verb, noun, prepositions, and adverb layers
+
 //Adjective Layer
+
+//shuffling my adjectivesList array via the Fisher Yates algorithm,
+// then selecting the first 20 word positions after shuffling
 const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 20)
 
+//forEach applies effects in its bracket for every word individually in the selected array
 twentyAdjectives.forEach((word) => {
+  //each of the 20 words will be turned into text with this specific styling
   const text = new Konva.Text({
     text: word,
     fontSize: 20,
@@ -343,20 +375,31 @@ twentyAdjectives.forEach((word) => {
     y: padding,
   })
 
+  //these rectangles will be the same size as their text
   const rect = new Konva.Rect({
-    width: text.width() + padding * 2,
+    width: text.width() + padding * 2, //padding = 1 therefore padding * 2 = 2 pixels
     height: text.height() + padding * 2,
   })
-
+  //I group 2+ elements and adjust it as if it is 1 element
   const button = new Konva.Group()
 
   button.add(rect)
   button.add(text)
 
+  //This is a collision algorrithm generated using chatGPT,
+  //  The function is to make words appear at a random location inside the stage,
+  // while making sure that the words wont appear in locations that overlap with one another.
+
+  //when false, the position of the words are too close together
   let valid = false
+
+  // x and y are the horizontal and vertical axis of the elements
   let x, y
 
   while (!valid) {
+    // This algorithm will generate a  random location for placement of the words based on the x and y axis
+    //ensuring the words are only generated inside the stage width and height to prevent clipping,
+    // and within my height and width margins to make the words more concentrated at the center
     x =
       widthMargin +
       Math.random() * (stage.width() - rect.width() - widthMargin * 2)
@@ -364,6 +407,7 @@ twentyAdjectives.forEach((word) => {
       heightMargin +
       Math.random() * (stage.height() - rect.height() - heightMargin * 2)
 
+    //generating a new area to place the words
     const newBox = {
       x: x - gap,
       y: y - gap,
@@ -371,26 +415,35 @@ twentyAdjectives.forEach((word) => {
       height: rect.height() + gap * 2,
     }
 
+    //after generating the new area valid is assumed as true.
     valid = true
 
+    // This algorithm generates a box inside the array each time a word "overlaps"
+    // This is to ensure that the next area generated for the words will be different from
+    // the areas inside the adjectiveBoxes array
     adjectiveBoxes.forEach((box) => {
+      // This algorithm detects when two words are too close together as overlap
       const overlap =
         newBox.x < box.x + box.width &&
         newBox.x + newBox.width > box.x &&
         newBox.y < box.y + box.height &&
         newBox.y + newBox.height > box.y
 
+      //when the words "overlap" valid = false therefore the algorithm starts again
       if (overlap) {
         valid = false
       }
     })
 
     if (valid) {
+      // when valid, change the position of my word to the new x,y location
       button.position({ x, y })
+      //add the overlapping position
       adjectiveBoxes.push(newBox)
     }
   }
 
+  //when you click one of the words, these things will happen.
   button.on("click", () => {
     selectedWords.adjective = word
     playClick()

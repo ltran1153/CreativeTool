@@ -17,6 +17,10 @@
     <script src="main.js" defer></script>
   </head>
   <body>
+    <!-- sound sources for my creative tool. I went with fantasy/tavern 
+     related music and sound effects to fit with the overall theme I am going for.
+     The guitar sound effects will accompany the final generated stories, to fit with
+     the concept that the user is playing as a bard. -->
     <audio loop id="ambient">
       <source src="assets/Ambient.mp3" type="audio/mpeg" />
     </audio>
@@ -26,6 +30,9 @@
      <audio id="click">
       <source src="assets/Click.mp3" type="audio/mpeg" />
     </audio>
+    <!-- pop up before the user can actually access the main content. This pop up sets the context for
+     the narrative, and overall vibe of this creative tool, as well as also warning the user to
+     adjust their volume before entering, as a music loop will be playing the moment they enter.  -->
     <dialog id="Warning">
       <p id="dialogtext">
         You are a wandering bard who travels across regions to sing tales about
@@ -39,21 +46,29 @@
     </dialog>
 
     <main>
+      <!-- This button allows users to mute the background music that is constantly playing. This
+       choice is necessary since background music often gets tiring to many after long uses -->
       <div id="uiButtons">
         <button id="ambientOn" type="button">Ambient: On</button>
       </div>
-
+<!-- A link to a google doc with attributions to all of the online asset sources used in this project
+ (This google doc is only temporary, as I have not yet figured out the best way to implement attributions
+ on this project)  -->
       <a
         id="link"
-        href="https://docs.google.com/document/d/1vs4qGwOk_C-Oibx6Q8R3KmXUGZOCFItPu7YPh9VbhFU/edit?usp=sharing"
+        href="https://docs.google.com/document/d/1vs4qGwOk_
+        C-Oibx6Q8R3KmXUGZOCFItPu7YPh9VbhFU/edit?usp=sharing"
         target="_blank"
         >Attributions</a
       >
+      <!-- This is a tooltip that will reveal itself when users hover over attributions link
+       to warn that clicking the link will open a popup to a new tab -->
       <div id="linkTooltip">
         Clicking on this link will take you to a google doc of asset
         attributions
       </div>
-
+<!-- this section is where the main visual contents of the creative tool is -->
+ <section>
       <div class="stageContainer" id="stage-container">
         <div id="bardContainer">
           <img src="assets/bard.png" id="bard" alt="bard" />
@@ -64,6 +79,7 @@
         </div>
         <div id="konva-stage"></div>
       </div>
+      </section>
     </main>
   </body>
 </html>

@@ -1,20 +1,9 @@
+/* I selected these fonts as they fit with fantasy/tavern theme of my project so far */
 @import url("https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Julee&family=Nova+Script&display=swap");
 
-:root {
-  --color01: black;
-  --color02: white;
-  --color03: coral;
-  --color04: yellow;
-  --border: dashed 0.2rem var(--color04);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color01: white;
-    --color02: black;
-  }
-}
-
+/* I wanted everything in this project to fit in one display.
+I added an image of a tavern for the background, as the visual aesthetic for the project.
+I intend to add more backgrounds, which show up randomly, to fit the theme of a wandering bard */
 body {
   background-image: url("assets/background.png");
   height: 100vh;
@@ -26,10 +15,10 @@ main {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  height: 100vh;
   width: 100vw;
 }
-
+/* aligning the contents horizontally, and setting the 
+konva-stage to the right side of the project */
 .stageContainer {
   flex: 1;
   display: flex;
@@ -37,12 +26,14 @@ main {
   justify-content: end;
   align-items: center;
 }
-
+/* This is the container where the primary function of this project will take place */
 #konva-stage {
   height: 400px;
   width: 600px;
   background-color: rgba(67, 134, 47, 0);
   background-size: 100% 100%;
+  /* I decided to use an image of a scroll for the container as it fit the tavern/fantasy theme
+  for word related content */
   background-image: url(assets/wordContainer.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -50,8 +41,8 @@ main {
   margin-bottom: -50px;
 }
 
-/* the [open] is there to ensure the styling on applies when the dialog is active; 
-without [open] display:flex; interferes with the button and dialog function*/
+/* styling the dialog box when it is open. I will likely add a background image later on so that it
+fits better with the theme of this project. */
 #Warning[open] {
   display: flex;
   flex-direction: column;
@@ -59,8 +50,6 @@ without [open] display:flex; interferes with the button and dialog function*/
   width: 100vw;
   height: 100vh;
   background-color: rgb(61, 61, 34);
-
-  /*Dialog boxes behave differently and cannot be moved via flex; this code brings box into the center*/
   position: fixed;
   top: 50%;
   left: 50%;
@@ -71,7 +60,6 @@ without [open] display:flex; interferes with the button and dialog function*/
 }
 
 #dialogtext {
-  
   font-family: Nova Script;
 }
 
@@ -84,6 +72,7 @@ without [open] display:flex; interferes with the button and dialog function*/
   cursor: pointer;
 }
 
+/* Solution I found so that the image of bard would fit the way I wanted */
 #bardContainer {
   max-height: 100vh;
   width: 40%;
@@ -99,6 +88,7 @@ without [open] display:flex; interferes with the button and dialog function*/
   top: -70px;
 }
 
+/* adjusting the dialogue box so that it fits just right inside the project */
 #dialogue {
   position: absolute;
   bottom: 70px; /* distance above bard */
@@ -114,16 +104,19 @@ without [open] display:flex; interferes with the button and dialog function*/
   background: rgba(142, 235, 114, 0.603);
   border-radius: 10px;
 
-  z-index: 10; /* ensures it sits above the bard */
+  /* ensures that this box fits on top of the bard */
+  z-index: 10;
   white-space: pre-line;
 }
-
+/* adjusting the placement of the background music: on/off button */
 #uiButtons {
   display: flex;
   justify-content: center;
   padding-top: 20px;
 }
 
+/* adjusting the attributions link to be in the corner of the project, away from where the main
+focus of the project is */
 #link {
   position: absolute;
   bottom: 0;
@@ -131,7 +124,7 @@ without [open] display:flex; interferes with the button and dialog function*/
   padding-right: 10px;
   color: rgb(255, 255, 255);
 }
-
+/* invisible tooltip directly above the attributions link */
 #linkTooltip {
   position: absolute;
   bottom: 20px;
@@ -145,6 +138,7 @@ without [open] display:flex; interferes with the button and dialog function*/
   display: none;
 }
 
+/* reveals tooltip when attributions link is hovered over */
 #link:hover ~ #linkTooltip {
   display: block;
 }
