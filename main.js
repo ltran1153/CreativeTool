@@ -334,6 +334,7 @@ function shuffleWords(array) {
   return shuffledWords
 }
 
+//creating empty array boxes
 const adjectiveBoxes = []
 const verbBoxes = []
 const nounBoxes = []
@@ -351,6 +352,7 @@ const gap = 4
 // be generated inside an area closer to the center of the stage
 const widthMargin = 62
 const heightMargin = 52
+
 
 //The functions and ideas behind the adjective layer will be repeated for the
 // verb, noun, prepositions, and adverb layers
@@ -445,17 +447,22 @@ twentyAdjectives.forEach((word) => {
 
   //when you click one of the words, these things will happen.
   button.on("click", () => {
+    //update the word in the adjective class inside of selectedWords array
     selectedWords.adjective = word
+    //play "click" sound
     playClick()
+    // add that word from "selectedWords" into the final story
     updateStory()
+    //hides itself and reveals the next layer in the sequence
     adjectiveLayer.hide()
     verbLayer.show()
+    //update the bard's dialogue based on what layer is revealed next
     updateDialogue()
     verbLayer.draw()
     adjectiveLayer.draw()
     console.log("Clicked word:", word)
   })
-
+  //adding effects when words are hovered over to show that they are clickable
   button.on("mouseover", () => {
     document.body.style.cursor = "pointer"
     button.scale({ x: 1.3, y: 1.3 })
@@ -465,7 +472,7 @@ twentyAdjectives.forEach((word) => {
     text.shadowOpacity(1.0)
     adjectiveLayer.draw()
   })
-
+  // returns words to default when no longer hovered over
   button.on("mouseout", () => {
     document.body.style.cursor = "default"
     text.fontSize(20)
@@ -484,6 +491,7 @@ twentyAdjectives.forEach((word) => {
 adjectiveLayer.draw()
 
 //Verb Layer
+//repetition of adjective layer functions but adjusted for verbs
 const twentyVerbs = shuffleWords(verbsList).slice(0, 20)
 twentyVerbs.forEach((word) => {
   const text = new Konva.Text({
@@ -585,6 +593,7 @@ twentyVerbs.forEach((word) => {
 verbLayer.draw()
 
 //Noun Layer
+// repetition of adjective layer functions but adjusted for nouns
 const twentyNouns = shuffleWords(nounsList).slice(0, 20)
 twentyNouns.forEach((word) => {
   const text = new Konva.Text({
@@ -686,6 +695,7 @@ twentyNouns.forEach((word) => {
 nounLayer.draw()
 
 //Preposition Layer
+// repetition of adjective layer functions but adjusted for prepositions
 const twentyPrepositions = shuffleWords(prepositionsList).slice(0, 20)
 twentyPrepositions.forEach((word) => {
   const text = new Konva.Text({
@@ -786,7 +796,7 @@ twentyPrepositions.forEach((word) => {
 prepositionLayer.draw()
 
 //Adverb Layer
-
+// repetition of adjective layer functions but adjusted for adverbs
 const twentyAdverbs = shuffleWords(adverbsList).slice(0, 20)
 twentyAdverbs.forEach((word) => {
   const text = new Konva.Text({
@@ -891,6 +901,7 @@ twentyAdverbs.forEach((word) => {
 adverbLayer.draw()
 
 //Story Layer
+// array that will store the selcted adjectives, verbs, nouns, prepositions, and adverbs
 const selectedWords = {
   adjective: "",
   verb: "",
@@ -898,6 +909,7 @@ const selectedWords = {
   preposition: "",
   adverb: "",
 }
+//array of stories to later be updated by selected words
 const storyTemplateList = [
   "The (noun) (adverb) (verb) over the (adjective) cave (preposition) the dark mountain.",
   "A (adjective) (noun) decided to (verb) (adverb) (preposition) the ancient ruins.",
@@ -905,19 +917,27 @@ const storyTemplateList = [
   "One (adjective) (noun) tried to (verb) (adverb) (preposition) the mysterious castle.",
   "A (noun) began to (verb) (adverb) (preposition) the (adjective) valley.",
 ]
+
+//This function will use the words inside the selectedWords array to update the story
 function updateStory() {
   const storyTemplate =
+  //randomly select 1 story template from the array
     storyTemplateList[Math.floor(Math.random() * storyTemplateList.length)]
+
+  // replace every word class' word based on the words stored inside the selectedWords array
   const filledStory = storyTemplate
     .replace("(noun)", selectedWords.noun)
     .replace("(adverb)", selectedWords.adverb)
     .replace("(verb)", selectedWords.verb)
     .replace("(adjective)", selectedWords.adjective)
     .replace("(preposition)", selectedWords.preposition)
-
+  
+  //the story text be the story after it is filled
   story.text(filledStory)
   storyLayer.draw()
 }
+
+//adjusting the story text to fit inside the konva stage and match the project's aesthetic
 const story = new Konva.Text({
   x: 60,
   y: 50,
@@ -933,19 +953,27 @@ storyLayer.add(story)
 storyLayer.draw()
 
 //Reset the tool to generate a new story.
+// the text for my reset button
 const resetText = new Konva.Text({
   text: "New Story?",
   fontSize: 30,
   fontFamily: "Eagle Lake",
   fill: "black",
 })
+//adjusting the position of the text
 resetText.position({ x: 190, y: 145 })
 
+// button area based on the size of the text
 const resetContainer = new Konva.Rect({
+  //added additional space for the box to avoid the issue where sometimes 
+  // the box would shrink and not fit the text. As the box is invisible,
+  // I don't have to worry about layout.
   width: resetText.width() + 24,
   height: resetText.height() + 16,
 })
 
+//grouping together the text and container into 1 element
+//and further adjusting the location of the button.
 const resetButton = new Konva.Group({
   x: 20,
   y: 100,
@@ -954,13 +982,18 @@ const resetButton = new Konva.Group({
 resetButton.add(resetContainer)
 resetButton.add(resetText)
 
+//on click these events will happen
 resetButton.on("click", () => {
+  //delete all of the stored data inside these arrays, This is because
+  // after a few new stories, the overlapping areas becomes overfilled 
+  // and there is no area for new words
   adjectiveBoxes.length = 0
   verbBoxes.length = 0
   nounBoxes.length = 0
   prepositionBoxes.length = 0
   adverbBoxes.length = 0
 
+  //delete all contents inside these layers
   adjectiveLayer.destroyChildren()
   verbLayer.destroyChildren()
   nounLayer.destroyChildren()
@@ -968,6 +1001,7 @@ resetButton.on("click", () => {
   adverbLayer.destroyChildren()
   storyLayer.destroyChildren()
 
+ //Repeat the entire code above once again to generate a new seed of words and stories.
   //Adjective Layer
   const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 20)
 
@@ -1522,6 +1556,8 @@ resetButton.on("click", () => {
   storyLayer.add(story)
   storyLayer.draw()
 
+  //resets to the beginning where the adjective layer is revealed and everything
+  //else is hidden
   resetLayer.hide()
   storyLayer.hide()
   adverbLayer.hide()
@@ -1529,7 +1565,9 @@ resetButton.on("click", () => {
   adjectiveLayer.show()
   verbLayer.hide()
   nounLayer.hide()
+  //update bard dialogue based on layer shown
   updateDialogue()
+  //play ambient sound once again.
   playAmbient()
   resetLayer.draw()
   adjectiveLayer.draw()
@@ -1540,6 +1578,7 @@ resetButton.on("click", () => {
   storyLayer.draw()
 })
 
+//adding effects to the button when it is hovered over to show it can be clicked
 resetButton.on("mouseover", () => {
   document.body.style.cursor = "pointer"
 
@@ -1548,6 +1587,7 @@ resetButton.on("mouseover", () => {
   resetText.shadowOpacity(0.9)
 })
 
+//reset to default when no longer hovered over
 resetButton.on("mouseout", () => {
   document.body.style.cursor = "default"
 
@@ -1558,9 +1598,13 @@ resetButton.on("mouseout", () => {
 resetLayer.add(resetButton)
 resetLayer.draw()
 
+
 //Character dialogue box
+// This function will update the bard's dialogue box based on selection and visible layer
+// I am planning to add more dialogue and interactions later on.
 const bardDialogue = document.getElementById("dialogue")
 function updateDialogue() {
+ //This function will update the bard's dialogue based on what layer is currently showing.
   if (adjectiveLayer.visible()) {
     bardDialogue.textContent =
       "hmmm, lets try something else. \n Select an adjective"
@@ -1578,20 +1622,29 @@ function updateDialogue() {
 }
 
 //Sound functions
-
+//adding sound feedback to my project's interactions,
+//the sounds are designed to engage the users and make my project more immersive.
 const click = document.getElementById("click")
 const ambient = document.getElementById("ambient")
 const guitar = document.getElementById("guitar")
 
+//whenever the user selects a word, this sound will play
 function playClick() {
+  //resets sound clip to the beginning
   click.currentTime = 0
   click.play()
 }
+// This is the background music that will be playing outside of when the story layer is shown
 function playAmbient() {
+  //pause guitar before playing ambient so sounds don't overlap
   guitar.pause()
   ambient.play()
 }
+
+// This is a guitar tune that will be played when users reach the story layer.
+// The idea behind this is that the bard plays their guitar while telling the tale
 function playGuitar() {
+  //pause ambient before playing guitar so sounds don't overlap
   ambient.pause()
   guitar.play()
 }
