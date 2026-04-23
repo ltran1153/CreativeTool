@@ -353,7 +353,6 @@ const gap = 4
 const widthMargin = 62
 const heightMargin = 52
 
-
 //The functions and ideas behind the adjective layer will be repeated for the
 // verb, noun, prepositions, and adverb layers
 
@@ -921,7 +920,7 @@ const storyTemplateList = [
 //This function will use the words inside the selectedWords array to update the story
 function updateStory() {
   const storyTemplate =
-  //randomly select 1 story template from the array
+    //randomly select 1 story template from the array
     storyTemplateList[Math.floor(Math.random() * storyTemplateList.length)]
 
   // replace every word class' word based on the words stored inside the selectedWords array
@@ -931,7 +930,7 @@ function updateStory() {
     .replace("(verb)", selectedWords.verb)
     .replace("(adjective)", selectedWords.adjective)
     .replace("(preposition)", selectedWords.preposition)
-  
+
   //the story text be the story after it is filled
   story.text(filledStory)
   storyLayer.draw()
@@ -965,7 +964,7 @@ resetText.position({ x: 190, y: 145 })
 
 // button area based on the size of the text
 const resetContainer = new Konva.Rect({
-  //added additional space for the box to avoid the issue where sometimes 
+  //added additional space for the box to avoid the issue where sometimes
   // the box would shrink and not fit the text. As the box is invisible,
   // I don't have to worry about layout.
   width: resetText.width() + 24,
@@ -985,7 +984,7 @@ resetButton.add(resetText)
 //on click these events will happen
 resetButton.on("click", () => {
   //delete all of the stored data inside these arrays, This is because
-  // after a few new stories, the overlapping areas becomes overfilled 
+  // after a few new stories, the overlapping areas becomes overfilled
   // and there is no area for new words
   adjectiveBoxes.length = 0
   verbBoxes.length = 0
@@ -1001,7 +1000,7 @@ resetButton.on("click", () => {
   adverbLayer.destroyChildren()
   storyLayer.destroyChildren()
 
- //Repeat the entire code above once again to generate a new seed of words and stories.
+  //Repeat the entire code above once again to generate a new seed of words and stories.
   //Adjective Layer
   const twentyAdjectives = shuffleWords(adjectivesList).slice(0, 20)
 
@@ -1598,13 +1597,12 @@ resetButton.on("mouseout", () => {
 resetLayer.add(resetButton)
 resetLayer.draw()
 
-
 //Character dialogue box
 // This function will update the bard's dialogue box based on selection and visible layer
 // I am planning to add more dialogue and interactions later on.
 const bardDialogue = document.getElementById("dialogue")
 function updateDialogue() {
- //This function will update the bard's dialogue based on what layer is currently showing.
+  //This function will update the bard's dialogue based on what layer is currently showing.
   if (adjectiveLayer.visible()) {
     bardDialogue.textContent =
       "hmmm, lets try something else. \n Select an adjective"
