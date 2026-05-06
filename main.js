@@ -1646,3 +1646,37 @@ function playGuitar() {
   ambient.pause()
   guitar.play()
 }
+
+const FantasyStory = [
+  "Fishermen along the western coast speak of a woman clothed in seafoam who appears before great tempests. Whenever she is seen walking upon the waves, the wise sailors abandon their nets and return to shore before disaster strikes.",
+  "Long ago, the people of Hollowmere buried a giant beneath the hills after he protected their village from a terrible war. Even now, the earth is said to tremble whenever danger draws near, as though the giant still stirs in his sleep.",
+  "Travelers passing through the Amber Hills leave bread beside the old stone statues scattered across the fields. According to legend, the statues were once guardians who sacrificed themselves to shield the kingdom from a curse.",
+  "The old folk of Briarthorne whisper that a pale lantern drifts through the marsh whenever storms approach the village. Those who follow its glow are always guided safely home, though no one has ever discovered who carries the light.",
+  "A wandering bard sang proudly of the warrior who faced the dragon of Blackspire not for glory, but to protect the farms and families beneath the mountain. When the beast finally fell, the people lit bonfires across the hills in honor of their champion.",
+  "When darkness spread across the valley of Eldermoor, a humble blacksmith forged a blade for the people and marched beside them into war. With every strike of his hammer and sword alike, hope spread through the frightened kingdom.",
+  "In the days of endless winter, a young shieldmaiden crossed the frozen sea to bring food and medicine to a starving village. When the ice broke beneath her feet, she carried the final supplies upon her back and saved every soul before dawn.",
+  "Hear now the tale of Sir Aldric, who climbed the burning walls of Stonewatch while arrows darkened the sky above him. Though wounded and alone, he raised the kingdom’s banner before the gate and turned despair into victory.",
+  "Hear the tale of the monk of Emberfall, whose fists burned brighter than forge-fire when invaders stormed the mountain temple. Alone he stood upon the bridge, and not a single enemy crossed before the sun returned.",
+  "Hear now a tale of iron and flame: of a lonely knight who rode through storm and shadow to challenge the dragon of Blackpeak. With steel in hand and courage unbroken, he struck the beast from the sky and returned at dawn, his armor scorched but his name carried forever in song.",
+]
+
+const CyberStory = [
+  "In the lower sectors of Avalon City, an aging musician played holographic melodies beside the transit rails every evening for a woman who never returned from the war beyond the atmosphere. Even decades later, he still saved her a seat beside him beneath the flickering neon lights.",
+  "A lonely android wandered the flooded streets carrying a photograph of the engineer who created her. Though her memory banks slowly decayed with time, she could never delete the final words he whispered before the laboratory burned.",
+  "On the rooftop of an abandoned megatower, two lovers promised to escape the city together before sunrise. When the evacuation train finally arrived, only one of them stepped aboard while the other disappeared into the smoke and sirens below.",
+  "In the crowded markets of Neo-Kyoto, a florist fell in love with a girl who visited his shop every week wearing a cracked combat visor. One winter she stopped appearing entirely, leaving only an unpaid flower resting quietly on the counter.",
+  "In a cramped apartment beneath the humming transit rails, a blind violinist played every evening for coins barely enough to survive another day. Yet despite the hunger and darkness surrounding him, he dreamed of one day performing a melody so beautiful it would make the entire city fall silent.",
+  "A homeless singer performed beside the flickering subway entrances every winter evening, wrapping her cracked hands around a rusted microphone for warmth between songs. Though most people passed without listening, she still sang with all her heart in hopes that someone might finally remember her name.",
+  "Deep within the polluted factories of Neo-Kyoto, a boy with damaged lungs spent his days breathing filtered air through a cracked mask while assembling machines he could never afford himself. Every night he climbed to the rooftop just to glimpse the stars hidden beyond the smog and wonder if freedom still existed somewhere above.",
+  "lonely android stood every evening at the edge of the harbor watching ships leave for distant colonies she could never visit. Though built only to serve the city, she quietly dreamed of discovering who she might become beyond it.",
+  "A retired soldier wandered from district to district searching for the younger brother he abandoned during the war many years before. Though every lead ended in disappointment, he could never forgive himself enough to stop looking.",
+  "Inside a cramped apartment overlooking endless holographic advertisements, a programmer spent sleepless nights designing artificial stars for people who had forgotten the real night sky. More than anything, she longed to create something that reminded humanity how to dream.",
+]
+
+const SamuraiStory = ["honor, virtue, values, warrior spirit, undying spirit"]
+
+const AngelicStory = ["hopeful, positive, praise, eulogy."]
+
+const ConcertStory = [
+  "Empowering, selfish, political, personable, social issue",
+]
