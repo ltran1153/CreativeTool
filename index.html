@@ -16,7 +16,7 @@
     <script src="other.js" defer></script>
     <script src="main.js" defer></script>
   </head>
-  <body>
+  <body id="background">
     <!-- sound sources for my creative tool. I went with fantasy/tavern 
      related music and sound effects to fit with the overall theme I am going for.
      The guitar sound effects will accompany the final generated stories, to fit with
@@ -49,6 +49,7 @@
       <!-- This button allows users to mute the background music that is constantly playing. This
        choice is necessary since background music often gets tiring to many after long uses -->
       <div id="uiButtons">
+        <button id="travel" type="button">Travel</button>
         <button id="ambientOn" type="button">Ambient: On</button>
       </div>
       <!-- A link to a google doc with attributions to all of the online asset sources used in this project
@@ -70,16 +71,16 @@
       <!-- this section is where the main visual contents of the creative tool is -->
       <section id="centralItems">
         <div id="mainAssets">
-        <div class="stageContainer" id="stage-container">
-          <div id="bardContainer">
-            <img src="assets/bard.png" id="bard" alt="bard" />
-            <div id="dialogue">
-              hmmm, what story to tell? <br />
-              Select an adjective
+          <div class="stageContainer" id="stage-container">
+            <div id="bardContainer">
+              <img src="assets/bard1.png" id="bard" alt="bard" />
+              <div id="dialogue">
+                hmmm, what story to tell? <br />
+                Select an adjective
+              </div>
             </div>
+            <div id="konva-stage"></div>
           </div>
-          <div id="konva-stage"></div>
-        </div>
         </div>
       </section>
     </main>

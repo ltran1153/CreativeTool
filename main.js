@@ -1,4 +1,3 @@
-
 // create the konva stage
 const stage = new Konva.Stage({
   container: "konva-stage",
@@ -458,6 +457,8 @@ twentyAdjectives.forEach((word) => {
     verbLayer.show()
     //update the bard's dialogue based on what layer is revealed next
     updateDialogue()
+    //update the bard's expression
+    randomExpression()
     verbLayer.draw()
     adjectiveLayer.draw()
     console.log("Clicked word:", word)
@@ -560,6 +561,7 @@ twentyVerbs.forEach((word) => {
     verbLayer.hide()
     nounLayer.show()
     updateDialogue()
+    randomExpression()
     verbLayer.draw()
     nounLayer.draw()
     console.log("Clicked word:", word)
@@ -662,6 +664,7 @@ twentyNouns.forEach((word) => {
     nounLayer.hide()
     prepositionLayer.show()
     updateDialogue()
+    randomExpression()
     nounLayer.draw()
     prepositionLayer.draw()
     console.log("Clicked word:", word)
@@ -764,6 +767,7 @@ twentyPrepositions.forEach((word) => {
     prepositionLayer.hide()
     adverbLayer.show()
     updateDialogue()
+    randomExpression()
     prepositionLayer.draw()
     adverbLayer.draw()
     console.log("Clicked word:", word)
@@ -866,6 +870,7 @@ twentyAdverbs.forEach((word) => {
     storyLayer.show()
     resetLayer.show()
     updateDialogue()
+    randomExpression()
     playGuitar()
     resetLayer.draw()
     adverbLayer.draw()
@@ -1073,6 +1078,7 @@ resetButton.on("click", () => {
 
       verbLayer.show()
       updateDialogue()
+      randomExpression()
       verbLayer.draw()
       adjectiveLayer.draw()
       console.log("Clicked word:", word)
@@ -1174,6 +1180,7 @@ resetButton.on("click", () => {
       verbLayer.hide()
       nounLayer.show()
       updateDialogue()
+      randomExpression()
       verbLayer.draw()
       nounLayer.draw()
       console.log("Clicked word:", word)
@@ -1275,6 +1282,7 @@ resetButton.on("click", () => {
       nounLayer.hide()
       prepositionLayer.show()
       updateDialogue()
+      randomExpression()
       nounLayer.draw()
       prepositionLayer.draw()
       console.log("Clicked word:", word)
@@ -1376,6 +1384,7 @@ resetButton.on("click", () => {
       prepositionLayer.hide()
       adverbLayer.show()
       updateDialogue()
+      randomExpression()
       prepositionLayer.draw()
       adverbLayer.draw()
       console.log("Clicked word:", word)
@@ -1480,6 +1489,7 @@ resetButton.on("click", () => {
       storyLayer.show()
       resetLayer.show()
       updateDialogue()
+      randomExpression()
       playGuitar()
       resetLayer.draw()
       adverbLayer.draw()
@@ -1648,6 +1658,27 @@ function playGuitar() {
   guitar.play()
 }
 
+const bard = document.getElementById("bard")
+const bardExpressions = [
+  "assets/bard3.png",
+  "assets/bard4.png",
+  "assets/bard5.png",
+  "assets/bard6.png",
+  "assets/bard7.png",
+  "assets/bard8.png",
+  "assets/bard9.png",
+  "assets/bard10.png",
+  "assets/bard11.png",
+]
+
+function randomExpression() {
+  const expressions = Math.floor(Math.random() * bardExpressions.length)
+
+  console.log(expressions)
+
+  bard.src = bardExpressions[expressions]
+}
+
 const FantasyStory = [
   "Fishermen along the western coast speak of a woman clothed in seafoam who appears before great tempests. Whenever she is seen walking upon the waves, the wise sailors abandon their nets and return to shore before disaster strikes.",
   "Long ago, the people of Hollowmere buried a giant beneath the hills after he protected their village from a terrible war. Even now, the earth is said to tremble whenever danger draws near, as though the giant still stirs in his sleep.",
@@ -1659,25 +1690,4 @@ const FantasyStory = [
   "Hear now the tale of Sir Aldric, who climbed the burning walls of Stonewatch while arrows darkened the sky above him. Though wounded and alone, he raised the kingdom’s banner before the gate and turned despair into victory.",
   "Hear the tale of the monk of Emberfall, whose fists burned brighter than forge-fire when invaders stormed the mountain temple. Alone he stood upon the bridge, and not a single enemy crossed before the sun returned.",
   "Hear now a tale of iron and flame: of a lonely knight who rode through storm and shadow to challenge the dragon of Blackpeak. With steel in hand and courage unbroken, he struck the beast from the sky and returned at dawn, his armor scorched but his name carried forever in song.",
-]
-
-const CyberStory = [
-  "In the lower sectors of Avalon City, an aging musician played holographic melodies beside the transit rails every evening for a woman who never returned from the war beyond the atmosphere. Even decades later, he still saved her a seat beside him beneath the flickering neon lights.",
-  "A lonely android wandered the flooded streets carrying a photograph of the engineer who created her. Though her memory banks slowly decayed with time, she could never delete the final words he whispered before the laboratory burned.",
-  "On the rooftop of an abandoned megatower, two lovers promised to escape the city together before sunrise. When the evacuation train finally arrived, only one of them stepped aboard while the other disappeared into the smoke and sirens below.",
-  "In the crowded markets of Neo-Kyoto, a florist fell in love with a girl who visited his shop every week wearing a cracked combat visor. One winter she stopped appearing entirely, leaving only an unpaid flower resting quietly on the counter.",
-  "In a cramped apartment beneath the humming transit rails, a blind violinist played every evening for coins barely enough to survive another day. Yet despite the hunger and darkness surrounding him, he dreamed of one day performing a melody so beautiful it would make the entire city fall silent.",
-  "A homeless singer performed beside the flickering subway entrances every winter evening, wrapping her cracked hands around a rusted microphone for warmth between songs. Though most people passed without listening, she still sang with all her heart in hopes that someone might finally remember her name.",
-  "Deep within the polluted factories of Neo-Kyoto, a boy with damaged lungs spent his days breathing filtered air through a cracked mask while assembling machines he could never afford himself. Every night he climbed to the rooftop just to glimpse the stars hidden beyond the smog and wonder if freedom still existed somewhere above.",
-  "lonely android stood every evening at the edge of the harbor watching ships leave for distant colonies she could never visit. Though built only to serve the city, she quietly dreamed of discovering who she might become beyond it.",
-  "A retired soldier wandered from district to district searching for the younger brother he abandoned during the war many years before. Though every lead ended in disappointment, he could never forgive himself enough to stop looking.",
-  "Inside a cramped apartment overlooking endless holographic advertisements, a programmer spent sleepless nights designing artificial stars for people who had forgotten the real night sky. More than anything, she longed to create something that reminded humanity how to dream.",
-]
-
-const SamuraiStory = ["honor, virtue, values, warrior spirit, undying spirit"]
-
-const AngelicStory = ["hopeful, positive, praise, eulogy."]
-
-const ConcertStory = [
-  "Empowering, selfish, political, personable, social issue",
 ]
