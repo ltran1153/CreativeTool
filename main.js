@@ -95,6 +95,16 @@ const adverbsList = [
   "Carelessly",
   "Fearfully",
   "Joyfully",
+  "menacingly",
+  "thunderously",
+  "ominously",
+  "brutally",
+  "ferociously",
+  "fiercly",
+  "majestically",
+  "defiantly",
+  "skywardly",
+  "wrathfully",
 ]
 
 // 50 words for prepositions
@@ -207,6 +217,16 @@ const nounsList = [
   "Fox",
   "Donut",
   "Skeleton",
+  "lair",
+  "dragon",
+  "scale",
+  "wyvern",
+  "Inferno",
+  "wyrm",
+  "talon",
+  "mountain",
+  "ruins",
+  "peak",
 ]
 //50 words for verbs
 const verbsList = [
@@ -319,6 +339,16 @@ const adjectivesList = [
   "Spooky",
   "Bouncy",
   "Fluffy",
+  "fiery",
+  "smoldering",
+  "savage",
+  "ashen",
+  "ancient",
+  "jagged",
+  "colossal",
+  "crimson",
+  "towering",
+  "ruthless",
 ]
 //Fisher Yates random array shuffling algorithm. This is a well known algorithm by web developers.
 // It is considered one of the best ways to generate pseudo random seeds for arrays.
@@ -351,7 +381,7 @@ const gap = 4
 //This const will be used as a margin for my stage, to ensure that words will only
 // be generated inside an area closer to the center of the stage
 const widthMargin = 62
-const heightMargin = 52
+const heightMargin = 27
 
 //The functions and ideas behind the adjective layer will be repeated for the
 // verb, noun, prepositions, and adverb layers
@@ -368,9 +398,9 @@ twentyAdjectives.forEach((word) => {
   const text = new Konva.Text({
     text: word,
     fontSize: 20,
-    fontFamily: "Julee",
-    fill: "black",
-    stroke: "green",
+    fontFamily: "MedievalSharp",
+    fill: "#145c1c",
+    stroke: "black",
     strokeWidth: "0.45",
     x: padding,
     y: padding,
@@ -455,10 +485,10 @@ twentyAdjectives.forEach((word) => {
     //hides itself and reveals the next layer in the sequence
     adjectiveLayer.hide()
     verbLayer.show()
-    //update the bard's dialogue based on what layer is revealed next
-    updateDialogue()
     //update the bard's expression
     randomExpression()
+    //update the bard's dialogue based on expression
+    updateDialogue()
     verbLayer.draw()
     adjectiveLayer.draw()
     console.log("Clicked word:", word)
@@ -560,8 +590,8 @@ twentyVerbs.forEach((word) => {
     updateStory()
     verbLayer.hide()
     nounLayer.show()
-    updateDialogue()
     randomExpression()
+    updateDialogue()
     verbLayer.draw()
     nounLayer.draw()
     console.log("Clicked word:", word)
@@ -663,8 +693,8 @@ twentyNouns.forEach((word) => {
     updateStory()
     nounLayer.hide()
     prepositionLayer.show()
-    updateDialogue()
     randomExpression()
+    updateDialogue()
     nounLayer.draw()
     prepositionLayer.draw()
     console.log("Clicked word:", word)
@@ -766,8 +796,8 @@ twentyPrepositions.forEach((word) => {
     updateStory()
     prepositionLayer.hide()
     adverbLayer.show()
-    updateDialogue()
     randomExpression()
+    updateDialogue()
     prepositionLayer.draw()
     adverbLayer.draw()
     console.log("Clicked word:", word)
@@ -869,8 +899,8 @@ twentyAdverbs.forEach((word) => {
     adverbLayer.hide()
     storyLayer.show()
     resetLayer.show()
+    randomFinal()
     updateDialogue()
-    randomExpression()
     playGuitar()
     resetLayer.draw()
     adverbLayer.draw()
@@ -988,7 +1018,9 @@ resetButton.add(resetContainer)
 resetButton.add(resetText)
 
 //on click these events will happen
-resetButton.on("click", () => {
+resetButton.on("click", toBeginning)
+
+function toBeginning() {
   //delete all of the stored data inside these arrays, This is because
   // after a few new stories, the overlapping areas becomes overfilled
   // and there is no area for new words
@@ -1077,8 +1109,8 @@ resetButton.on("click", () => {
       adjectiveLayer.hide()
 
       verbLayer.show()
-      updateDialogue()
       randomExpression()
+      updateDialogue()
       verbLayer.draw()
       adjectiveLayer.draw()
       console.log("Clicked word:", word)
@@ -1179,8 +1211,8 @@ resetButton.on("click", () => {
       updateStory()
       verbLayer.hide()
       nounLayer.show()
-      updateDialogue()
       randomExpression()
+      updateDialogue()
       verbLayer.draw()
       nounLayer.draw()
       console.log("Clicked word:", word)
@@ -1281,8 +1313,8 @@ resetButton.on("click", () => {
       updateStory()
       nounLayer.hide()
       prepositionLayer.show()
-      updateDialogue()
       randomExpression()
+      updateDialogue()
       nounLayer.draw()
       prepositionLayer.draw()
       console.log("Clicked word:", word)
@@ -1383,8 +1415,8 @@ resetButton.on("click", () => {
       updateStory()
       prepositionLayer.hide()
       adverbLayer.show()
-      updateDialogue()
       randomExpression()
+      updateDialogue()
       prepositionLayer.draw()
       adverbLayer.draw()
       console.log("Clicked word:", word)
@@ -1488,8 +1520,8 @@ resetButton.on("click", () => {
       adverbLayer.hide()
       storyLayer.show()
       resetLayer.show()
+      randomFinal()
       updateDialogue()
-      randomExpression()
       playGuitar()
       resetLayer.draw()
       adverbLayer.draw()
@@ -1575,6 +1607,7 @@ resetButton.on("click", () => {
   adjectiveLayer.show()
   verbLayer.hide()
   nounLayer.hide()
+  randomExpression()
   //update bard dialogue based on layer shown
   updateDialogue()
   //play ambient sound once again.
@@ -1586,7 +1619,7 @@ resetButton.on("click", () => {
   prepositionLayer.draw()
   adverbLayer.draw()
   storyLayer.draw()
-})
+}
 
 //adding effects to the button when it is hovered over to show it can be clicked
 resetButton.on("mouseover", () => {
@@ -1614,22 +1647,32 @@ resetLayer.draw()
 const bardDialogue = document.getElementById("dialogue")
 function updateDialogue() {
   //This function will update the bard's dialogue based on what layer is currently showing.
-  if (adjectiveLayer.visible()) {
-    bardDialogue.textContent =
-      "hmmm, lets try something else. \n Select an adjective"
-  } else if (verbLayer.visible()) {
-    bardDialogue.textContent = "Select a verb"
-  } else if (nounLayer.visible()) {
-    bardDialogue.textContent = "Select a noun"
-  } else if (prepositionLayer.visible()) {
-    bardDialogue.textContent = "Select a preposition"
-  } else if (adverbLayer.visible()) {
-    bardDialogue.textContent = "Select an adverb"
-  } else if (storyLayer.visible()) {
-    bardDialogue.textContent = "I just wrote absolute cinema!"
+  if (currentExpression === "assets/bard3.png") {
+    bardDialogue.textContent = "seriously!?"
+  } else if (currentExpression === "assets/bard5.png") {
+    bardDialogue.textContent = "Is that it?"
+  } else if (currentExpression === "assets/bard6.png") {
+    bardDialogue.textContent = "*Sigh*"
+  } else if (currentExpression === "assets/bard7.png") {
+    bardDialogue.textContent = "......"
+  } else if (currentExpression === "assets/bard8.png") {
+    bardDialogue.textContent = "Why you choose this!? B-B-Baka!"
+  } else if (currentExpression === "assets/bard9.png") {
+    bardDialogue.textContent = "ehhhhgggghhhuuuuhhh"
+  } else if (currentExpression === "assets/bard11.png") {
+    bardDialogue.textContent = "Why?"
+  } else if (currentExpression === "assets/bard10.png") {
+    bardDialogue.textContent = "Dis song so @$$..."
+  } else if (currentExpression === "assets/bard12.png") {
+    bardDialogue.textContent = "Dis song is absolute peak"
+  } else if (currentExpression === "assets/bard13.png") {
+    bardDialogue.textContent = "Heh..."
+  } else if (currentExpression === "assets/bard14.png") {
+    bardDialogue.textContent = "Its getting there..."
+  } else if (currentExpression === "assets/bard15.png") {
+    bardDialogue.textContent = "This gonna go crazy!..."
   }
 }
-
 //Sound functions
 //adding sound feedback to my project's interactions,
 //the sounds are designed to engage the users and make my project more immersive.
@@ -1661,24 +1704,31 @@ function playGuitar() {
 const bard = document.getElementById("bard")
 const bardExpressions = [
   "assets/bard3.png",
-  "assets/bard4.png",
   "assets/bard5.png",
   "assets/bard6.png",
   "assets/bard7.png",
   "assets/bard8.png",
   "assets/bard9.png",
-  "assets/bard10.png",
   "assets/bard11.png",
+  "assets/bard13.png",
+  "assets/bard14.png",
+  "assets/bard15.png",
 ]
+const finalExpressions = ["assets/bard10.png", "assets/bard12.png"]
 
+let currentExpression = ""
 function randomExpression() {
   const expressions = Math.floor(Math.random() * bardExpressions.length)
-
   console.log(expressions)
-
-  bard.src = bardExpressions[expressions]
+  currentExpression = bardExpressions[expressions]
+  bard.src = currentExpression
 }
-
+function randomFinal() {
+  const expressions = Math.floor(Math.random() * finalExpressions.length)
+  console.log(expressions)
+  currentExpression = finalExpressions[expressions]
+  bard.src = currentExpression
+}
 const FantasyStory = [
   "Fishermen along the western coast speak of a woman clothed in seafoam who appears before great tempests. Whenever she is seen walking upon the waves, the wise sailors abandon their nets and return to shore before disaster strikes.",
   "Long ago, the people of Hollowmere buried a giant beneath the hills after he protected their village from a terrible war. Even now, the earth is said to tremble whenever danger draws near, as though the giant still stirs in his sleep.",
@@ -1691,3 +1741,161 @@ const FantasyStory = [
   "Hear the tale of the monk of Emberfall, whose fists burned brighter than forge-fire when invaders stormed the mountain temple. Alone he stood upon the bridge, and not a single enemy crossed before the sun returned.",
   "Hear now a tale of iron and flame: of a lonely knight who rode through storm and shadow to challenge the dragon of Blackpeak. With steel in hand and courage unbroken, he struck the beast from the sky and returned at dawn, his armor scorched but his name carried forever in song.",
 ]
+
+const dragonNouns = [
+  "lair",
+  "dragon",
+  "scale",
+  "wyvern",
+  "Inferno",
+  "wyrm",
+  "talon",
+  "mountain",
+  "ruins",
+  "peak",
+]
+
+const dragonAdjectives = [
+  "fiery",
+  "smoldering",
+  "savage",
+  "ashen",
+  "ancient",
+  "jagged",
+  "colossal",
+  "crimson",
+  "towering",
+  "ruthless",
+]
+
+const dragonVerbs = [
+  "soar",
+  "scorch",
+  "snarl",
+  "blaze",
+  "ravage",
+  "claw",
+  "conquer",
+  "terrorize",
+  "devour",
+  "tremble",
+]
+
+const dragonAdverbs = [
+  "menacingly",
+  "thunderously",
+  "ominously",
+  "brutally",
+  "ferociously",
+  "fiercly",
+  "majestically",
+  "defiantly",
+  "skywardly",
+  "wrathfully",
+]
+
+const heroicAdjectives = [
+  "noble",
+  "brave",
+  "righteous",
+  "heroic",
+  "chivalrous",
+  "legendary",
+  "triumphant",
+  "stalwart",
+  "glorious",
+  "lionhearted",
+]
+
+const heroicVerbs = [
+  "conquer",
+  "defend",
+  "triumph",
+  "liberate",
+  "sacrifice",
+  "defy",
+  "command",
+  "rally",
+  "clash",
+]
+
+const heroicNouns = [
+  "steed",
+  "sentinel",
+  "citadel",
+  "valor",
+  "crusade",
+  "monarch",
+  "dragon-slayer",
+  "templar",
+  "relic",
+  "legend",
+]
+
+const heroicAdverbs = [
+  "valiantly",
+  "victoriously",
+  "heroically",
+  "fearlessly",
+  "triumphantly",
+  "dutifully",
+  "decisively",
+  "resolutely",
+  "defiantly",
+  "unyieldingly",
+]
+
+const banditNouns = [
+  "marauder",
+  "brigade",
+  "vagabond",
+  "bandit",
+  "gang",
+  "bounty",
+  "hideout",
+  "mask",
+  "saboteur",
+  "ambush",
+]
+
+const banditAdjectives = [
+  "shady",
+  "cunning",
+  "fearsome",
+  "relentless",
+  "smug",
+  "notorious",
+  "elusive",
+  "hardened",
+  "stealthy",
+  "devious",
+]
+
+const banditVerbs = [
+  "escape",
+  "loot",
+  "sneak",
+  "sabotage",
+  "scheme",
+  "disguise",
+  "infiltrate",
+  "flee",
+  "ransack",
+  "extort",
+]
+
+const banditAdverbs = [
+  "sneakily",
+  "silently",
+  "cunningly",
+  "secretly",
+  "swiftly",
+  "deceitfully",
+  "suspiciously",
+  "smugly",
+  "opportunistically",
+  "callously",
+]
+
+travel.addEventListener("click", toBeginning)
+travel.addEventListener("click", changeBackground)

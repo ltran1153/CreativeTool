@@ -1,6 +1,5 @@
 /* I selected these fonts as they fit with fantasy/tavern theme of my project so far */
-@import url("https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Julee&family=Nova+Script&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Julee&family=MedievalSharp&family=Nova+Script&display=swap');
 /* I wanted everything in this project to fit in one display.
 I added an image of a tavern for the background, as the visual aesthetic for the project.
 I intend to add more backgrounds, which show up randomly, to fit the theme of a wandering bard */
@@ -45,6 +44,14 @@ main {
   height: auto;
   display: block;
   margin-top: 80px;
+}
+#rope {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 80px;
+  opacity: 0;
 }
 
 /* dialogue stays attached to bard */
