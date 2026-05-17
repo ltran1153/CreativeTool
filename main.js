@@ -1806,10 +1806,20 @@ const bardExpressions = [
 const finalExpressions = ["assets/bard10.png", "assets/bard12.png"]
 
 let currentExpression = ""
+let previousExpression = -1
+
 function randomExpression() {
-  const expressions = Math.floor(Math.random() * bardExpressions.length)
-  console.log(expressions)
-  currentExpression = bardExpressions[expressions]
+
+  let newExpression
+
+  do {
+    newExpression = Math.floor(Math.random() * bardExpressions.length)
+  } while (newExpression === previousExpression)
+
+  previousExpression = newExpression
+
+  currentExpression = bardExpressions[newExpression]
+
   bard.src = currentExpression
 }
 function randomFinal() {

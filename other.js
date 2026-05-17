@@ -37,24 +37,28 @@ const backgroundThemes = [
   "assets/background2.png",
 ]
 
+let previousBackground = -1
 function changeBackground() {
-  const backgroundOption = Math.floor(Math.random() * backgroundThemes.length)
+  let newBackground
+  do {
+    newBackground = Math.floor(Math.random() * backgroundThemes.length)
+  } while (newBackground === previousBackground)
+  previousBackground = newBackground
+  background.style.backgroundImage = `url("${backgroundThemes[newBackground]}")`
 
-  background.style.backgroundImage = `url("${backgroundThemes[backgroundOption]}")`
-
-  if (backgroundThemes[backgroundOption] === "assets/background.png") {
+  if (backgroundThemes[newBackground] === "assets/background.png") {
     konvaStage.style.backgroundImage = 'url("assets/wordContainer1.png")'
     konvaStage.style.filter = "brightness(1)"
     ;((bard.src = "assets/bard1.png"),
       (bardDialogue.textContent = "Come onnn, everyone is watching"))
     rope.style.opacity = "0"
-  } else if (backgroundThemes[backgroundOption] === "assets/background1.png") {
+  } else if (backgroundThemes[newBackground] === "assets/background1.png") {
     konvaStage.style.backgroundImage = 'url("assets/wordContainer2.png")'
     konvaStage.style.filter = "brightness(1.5)"
     bard.src = "assets/bard2.png"
     bardDialogue.textContent = "Oh Sh-"
     rope.style.opacity = "0"
-  } else if (backgroundThemes[backgroundOption] === "assets/background2.png") {
+  } else if (backgroundThemes[newBackground] === "assets/background2.png") {
     konvaStage.style.backgroundImage = 'url("assets/wordContainer3.png")'
     konvaStage.style.filter = "brightness(0.5)"
     bard.src = "assets/bard4.png"
