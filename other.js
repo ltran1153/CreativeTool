@@ -39,6 +39,53 @@ const backgroundThemes = [
 
 let previousBackground = -1
 let currentBackground = "assets/background.png"
+const fontBackground = {
+  "assets/background.png": {
+    fontSize: "20",
+    fontFamily: "MedievalSharp",
+    fill: "#145c1c",
+    stroke: "black",
+    strokeWidth: 0.45,
+  },
+  "assets/background1.png": {
+    fontSize: "20",
+    fontFamily: "Metal Mania",
+    fill: "darkred",
+    stroke: "black",
+    strokeWidth: 1,
+  },
+  "assets/background2.png": {
+    fontSize: "20",
+    fontFamily: "Julee",
+    fill: "white",
+    stroke: "black",
+    strokeWidth: 1,
+  },
+}
+
+const storyFont = {
+  "assets/background.png": {
+    fontSize: "20",
+    fontFamily: "MedievalSharp",
+    fill: "#145c1c",
+    stroke: "black",
+    strokeWidth: 0.45,
+  },
+  "assets/background1.png": {
+    fontSize: "20",
+    fontFamily: "Eagle Lake",
+    fill: "darkred",
+    stroke: "black",
+    strokeWidth: 1,
+  },
+  "assets/background2.png": {
+    fontSize: "20",
+    fontFamily: "Julee",
+    fill: "white",
+    stroke: "black",
+    strokeWidth: 1,
+  },
+}
 
 function changeBackground() {
   let newBackground
@@ -46,7 +93,7 @@ function changeBackground() {
     newBackground = Math.floor(Math.random() * backgroundThemes.length)
   } while (newBackground === previousBackground)
   previousBackground = newBackground
-   currentBackground = backgroundThemes[newBackground]
+  currentBackground = backgroundThemes[newBackground]
   background.style.backgroundImage = `url("${backgroundThemes[newBackground]}")`
 
   if (backgroundThemes[newBackground] === "assets/background.png") {
@@ -57,13 +104,13 @@ function changeBackground() {
     rope.style.opacity = "0"
   } else if (backgroundThemes[newBackground] === "assets/background1.png") {
     konvaStage.style.backgroundImage = 'url("assets/wordContainer2.png")'
-    konvaStage.style.filter = "brightness(1.5)"
+    konvaStage.style.filter = "brightness(1)"
     bard.src = "assets/bard2.png"
     bardDialogue.textContent = "Oh Sh-"
     rope.style.opacity = "0"
   } else if (backgroundThemes[newBackground] === "assets/background2.png") {
     konvaStage.style.backgroundImage = 'url("assets/wordContainer3.png")'
-    konvaStage.style.filter = "brightness(0.5)"
+    konvaStage.style.filter = "brightness(1)"
     bard.src = "assets/bard4.png"
     bardDialogue.textContent = "bruh..."
     rope.style.opacity = "1"
