@@ -69,12 +69,21 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  background: rgba(142, 235, 114, 0.603);
   border-radius: 10px;
   z-index: 10;
 }
 
+#dialogue::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("assets/dialogueContainer.png");
+  background-size: cover;
+
+  opacity: 0.8;
+  z-index: -1;
+}
 /* responsive Konva container */
 #konva-stage {
   width: 600px;

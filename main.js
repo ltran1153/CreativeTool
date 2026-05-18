@@ -584,7 +584,7 @@ twentyAdjectives.forEach((word) => {
   })
   //adding effects when words are hovered over to show that they are clickable
   button.on("mouseover", () => {
-    document.body.style.cursor = "pointer"
+    document.body.style.cursor = 'url("assets/cursor1.png"), auto'
     button.scale({ x: 1.3, y: 1.3 })
 
     text.shadowColor("yellow")
@@ -594,7 +594,7 @@ twentyAdjectives.forEach((word) => {
   })
   // returns words to default when no longer hovered over
   button.on("mouseout", () => {
-    document.body.style.cursor = "default"
+    document.body.style.cursor = 'url("assets/cursor2.png"), auto'
     text.fontSize(20)
     button.scale({ x: 1, y: 1 })
 
@@ -687,7 +687,7 @@ twentyVerbs.forEach((word) => {
   })
 
   button.on("mouseover", () => {
-    document.body.style.cursor = "pointer"
+    document.body.style.cursor = 'url("assets/cursor1.png"), auto'
     button.scale({ x: 1.3, y: 1.3 })
 
     text.shadowColor("yellow")
@@ -697,7 +697,7 @@ twentyVerbs.forEach((word) => {
   })
 
   button.on("mouseout", () => {
-    document.body.style.cursor = "default"
+    document.body.style.cursor = 'url("assets/cursor2.png"), auto'
     text.fontSize(20)
     button.scale({ x: 1, y: 1 })
 
@@ -790,7 +790,7 @@ twentyNouns.forEach((word) => {
   })
 
   button.on("mouseover", () => {
-    document.body.style.cursor = "pointer"
+    document.body.style.cursor = 'url("assets/cursor1.png"), auto'
     button.scale({ x: 1.3, y: 1.3 })
 
     text.shadowColor("yellow")
@@ -800,7 +800,7 @@ twentyNouns.forEach((word) => {
   })
 
   button.on("mouseout", () => {
-    document.body.style.cursor = "default"
+    document.body.style.cursor = 'url("assets/cursor2.png"), auto'
     text.fontSize(20)
     button.scale({ x: 1, y: 1 })
 
@@ -893,7 +893,7 @@ twentyPrepositions.forEach((word) => {
   })
 
   button.on("mouseover", () => {
-    document.body.style.cursor = "pointer"
+    document.body.style.cursor = 'url("assets/cursor1.png"), auto'
     button.scale({ x: 1.3, y: 1.3 })
 
     text.shadowColor("yellow")
@@ -903,7 +903,7 @@ twentyPrepositions.forEach((word) => {
   })
 
   button.on("mouseout", () => {
-    document.body.style.cursor = "default"
+    document.body.style.cursor = 'url("assets/cursor2.png"), auto'
     text.fontSize(20)
     button.scale({ x: 1, y: 1 })
 
@@ -998,7 +998,7 @@ twentyAdverbs.forEach((word) => {
   })
 
   button.on("mouseover", () => {
-    document.body.style.cursor = "pointer"
+    document.body.style.cursor = 'url("assets/cursor1.png"), auto'
     button.scale({ x: 1.3, y: 1.3 })
 
     text.shadowColor("yellow")
@@ -1008,7 +1008,7 @@ twentyAdverbs.forEach((word) => {
   })
 
   button.on("mouseout", () => {
-    document.body.style.cursor = "default"
+    document.body.style.cursor = 'url("assets/cursor2.png"), auto'
     text.fontSize(20)
     button.scale({ x: 1, y: 1 })
 
@@ -1206,7 +1206,7 @@ function toBeginning() {
     })
 
     button.on("mouseover", () => {
-      document.body.style.cursor = "pointer"
+      document.body.style.cursor = 'url("assets/cursor1.png"), auto'
       button.scale({ x: 1.3, y: 1.3 })
 
       text.shadowColor("yellow")
@@ -1216,7 +1216,7 @@ function toBeginning() {
     })
 
     button.on("mouseout", () => {
-      document.body.style.cursor = "default"
+      document.body.style.cursor = 'url("assets/cursor2.png"), auto'
       text.fontSize(20)
       button.scale({ x: 1, y: 1 })
 
@@ -1308,7 +1308,7 @@ function toBeginning() {
     })
 
     button.on("mouseover", () => {
-      document.body.style.cursor = "pointer"
+      document.body.style.cursor = 'url("assets/cursor1.png"), auto'
       button.scale({ x: 1.3, y: 1.3 })
 
       text.shadowColor("yellow")
@@ -1318,7 +1318,7 @@ function toBeginning() {
     })
 
     button.on("mouseout", () => {
-      document.body.style.cursor = "default"
+      document.body.style.cursor = 'url("assets/cursor2.png"), auto'
       text.fontSize(20)
       button.scale({ x: 1, y: 1 })
 
@@ -1410,7 +1410,7 @@ function toBeginning() {
     })
 
     button.on("mouseover", () => {
-      document.body.style.cursor = "pointer"
+      document.body.style.cursor = 'url("assets/cursor1.png"), auto'
       button.scale({ x: 1.3, y: 1.3 })
 
       text.shadowColor("yellow")
@@ -1420,7 +1420,7 @@ function toBeginning() {
     })
 
     button.on("mouseout", () => {
-      document.body.style.cursor = "default"
+      document.body.style.cursor = 'url("assets/cursor2.png"), auto'
       text.fontSize(20)
       button.scale({ x: 1, y: 1 })
 
@@ -1512,7 +1512,7 @@ function toBeginning() {
     })
 
     button.on("mouseover", () => {
-      document.body.style.cursor = "pointer"
+      document.body.style.cursor = 'url("assets/cursor1.png"), auto'
       button.scale({ x: 1.3, y: 1.3 })
 
       text.shadowColor("yellow")
@@ -1522,7 +1522,7 @@ function toBeginning() {
     })
 
     button.on("mouseout", () => {
-      document.body.style.cursor = "default"
+      document.body.style.cursor = 'url("assets/cursor2.png"), auto'
       text.fontSize(20)
       button.scale({ x: 1, y: 1 })
 
@@ -1619,7 +1619,7 @@ function toBeginning() {
     })
 
     button.on("mouseover", () => {
-      document.body.style.cursor = "pointer"
+      document.body.style.cursor = 'url("assets/cursor1.png"), auto'
       button.scale({ x: 1.3, y: 1.3 })
 
       text.shadowColor("yellow")
@@ -1629,7 +1629,7 @@ function toBeginning() {
     })
 
     button.on("mouseout", () => {
-      document.body.style.cursor = "default"
+      document.body.style.cursor = 'url("assets/cursor2.png"), auto'
       text.fontSize(20)
       button.scale({ x: 1, y: 1 })
 
@@ -1712,7 +1712,7 @@ function toBeginning() {
 
 //adding effects to the button when it is hovered over to show it can be clicked
 resetButton.on("mouseover", () => {
-  document.body.style.cursor = "pointer"
+  document.body.style.cursor = 'url("assets/cursor1.png"), auto'
 
   resetText.shadowColor("yellow")
   resetText.shadowBlur(12)
@@ -1721,7 +1721,7 @@ resetButton.on("mouseover", () => {
 
 //reset to default when no longer hovered over
 resetButton.on("mouseout", () => {
-  document.body.style.cursor = "default"
+  document.body.style.cursor = 'url("assets/cursor2.png"), auto'
 
   resetText.shadowColor("none")
   resetText.shadowBlur(0)
@@ -1809,7 +1809,6 @@ let currentExpression = ""
 let previousExpression = -1
 
 function randomExpression() {
-
   let newExpression
 
   do {
