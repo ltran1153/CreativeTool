@@ -69,6 +69,7 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-bottom: 22px;
   border-radius: 10px;
   z-index: 10;
 }
@@ -78,7 +79,7 @@ main {
   position: absolute;
   inset: 0;
 
-  background-image: url("assets/dialogueContainer.png");
+  background-image: url("assets/dialoguecContainer1.png");
   background-size: cover;
 
   opacity: 0.8;
@@ -100,9 +101,30 @@ main {
 }
 
 #ambientOn {
-  display: block;
-  margin: 0 auto;
-  margin-top: 10px;
+  width: 100px;
+  height: 20px;
+  background: none; /* Removes default grey background */
+  border: none; /* Removes default bevel/border */
+  outline: inherit;
+  background-image: url("assets/button2.png");
+  background-size: cover;
+}
+
+#travel {
+  width: 100px;
+  height: 20px;
+  background: none; /* Removes default grey background */
+  border: none; /* Removes default bevel/border */
+  outline: inherit;
+  background-image: url("assets/button2.png");
+  background-size: cover;
+}
+
+#uiButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 #Warning[open] {
   width: 100vw;

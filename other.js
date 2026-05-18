@@ -38,12 +38,15 @@ const backgroundThemes = [
 ]
 
 let previousBackground = -1
+let currentBackground = "assets/background.png"
+
 function changeBackground() {
   let newBackground
   do {
     newBackground = Math.floor(Math.random() * backgroundThemes.length)
   } while (newBackground === previousBackground)
   previousBackground = newBackground
+   currentBackground = backgroundThemes[newBackground]
   background.style.backgroundImage = `url("${backgroundThemes[newBackground]}")`
 
   if (backgroundThemes[newBackground] === "assets/background.png") {

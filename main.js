@@ -1033,20 +1033,55 @@ const selectedWords = {
   preposition: "",
   adverb: "",
 }
-//array of stories to later be updated by selected words
-const storyTemplateList = [
-  "The (noun) (adverb) (verb) over the (adjective) cave (preposition) the dark mountain.",
-  "A (adjective) (noun) decided to (verb) (adverb) (preposition) the ancient ruins.",
-  "The (noun) (verb) (adverb) through the (adjective) forest (preposition) the hidden lake.",
-  "One (adjective) (noun) tried to (verb) (adverb) (preposition) the mysterious castle.",
-  "A (noun) began to (verb) (adverb) (preposition) the (adjective) valley.",
-]
+//array of stories to later be updated by selected words. Stories chosen will be based on background
+const storyTemplateList = {
+  "assets/background.png": [
+    "The knight marched (adverb) through the ruined valley to (verb) the sacred blade hidden beneath the mountain. With the (noun) raised high, the (adjective) warrior inspired the kingdom to rise once more (preposition) the ashes of war.",
+    "A lone hero stood (preposition) the burning gates while soldiers fled in fear around him. The (adjective) champion chose to (verb) the ancient (noun) as the people watched (adverb) from afar.",
+    "The crowd waited (adverb) beneath the castle walls as the knight climbed toward the dragon’s lair. Armed with only a battered (noun), the (adjective) hero prepared to (verb) the beast alone (preposition) the darkness above.",
+    "Though exhausted and wounded, the knight chose to (verb) the frightened villagers trapped within the collapsing city. The (adjective) defender carried the final (noun) safely (preposition) the raging flames while the survivors cheered (adverb).",
+    "Beneath the moonlit sky, the hero marched (preposition) the enemy fortress while his companions followed (adverb) behind him. The (adjective) warrior raised the royal (noun) and charged forward to (verb) the kingdom from destruction.",
+    "The people gathered (adverb) around the capital square as the knight returned victorious from exile. Holding the ancient (noun), the (adjective) champion vowed to (verb) justice across the realm (preposition) the years of suffering.",
+    "The warrior rode (preposition) the battlefield while the sound of victory bells echoed (adverb) through the capital. Carrying the sacred (noun), the (adjective) hero continued to (verb) hope across the war-torn realm.",
+    "The (adjective) champion crossed (preposition) the ruined bridge with the sacred (noun) raised high above his head. As the people celebrated (adverb) below, he prepared to (verb) the final enemy stronghold.",
+    "The (adjective) knight marched (preposition) the shattered battlefield while the soldiers cheered (adverb) behind him. Carrying the ancient (noun), he prepared to (verb) for the freedom of the kingdom.",
+    "A (adjective) warrior returned (preposition) the capital carrying the broken (noun) from the final battle. Though exhausted, he smiled (adverb) and continued to (verb) hope across the recovering kingdom.",
+  ],
+
+  "assets/background1.png": [
+    "The (adjective) dragon soared (preposition) the burning mountains while villages crumbled (adverb) beneath its shadow. Carrying the cursed (noun) within its claws, the beast prepared to (verb) the final kingdom.",
+    "A dragon marched (adverb) through the shattered kingdom carrying the broken (noun) between its massive teeth. The (adjective) beast continued to (verb) the land until even the rivers ran black with ash.",
+    "The mountains crumbled (adverb) as the dragon spread its wings across the horizon and darkened the sun. Guarding the sacred (noun), the (adjective) beast swore to (verb) every kingdom beneath the trembling skies.",
+    "The dragon soared (preposition) the blackened heavens while rivers boiled and forests collapsed (adverb) beneath its wings. With the sacred (noun) burning in its jaws, the (adjective) creature sought to (verb) all living kingdoms.",
+    "The (adjective) dragon roared (adverb) across the heavens while the earth split apart (preposition) the mountains below. Carrying the ancient (noun), the beast prepared to (verb) the world itself.",
+    "A (adjective) wyrm rose (preposition) the endless storm as thunder shattered the skies and oceans crashed against the land. With the cursed (noun) glowing beneath its claws, the creature began to (verb) the heavens and earth alike.",
+    "The (adjective) dragon climbed (preposition) the ruined cliffs while molten fire spilled (adverb) into the valleys below. Guarding the cursed (noun), the creature prepared to (verb) the last remaining kingdom.",
+    "The sky darkened (adverb) as the dragon circled (preposition) the burning fortress surrounded by thunder and falling debris. Beneath the creature’s (adjective) gaze, the final (noun) was about to (verb) forever.",
+    "The mountains trembled (adverb) as the dragon crawled (preposition) the ancient canyon with glowing fire pouring from its jaws. Holding the royal (noun), the (adjective) creature vowed to (verb) every city that defied it.",
+    "A (adjective) dragon trailed (preposition) the heavens while lightning tore through the skies and the ground collapsed beneath entire cities. The beast carried a blazing (noun) capable of helping it (verb) creation itself.",
+  ],
+
+  "assets/background2.png": [
+    "The (adjective) bandit rode (preposition) the abandoned roads while the old gang searched (adverb) for his trail. Carrying the stolen (noun), he chose to (verb) the villagers he once terrorized.",
+    "A (adjective) thief escaped (preposition) the lawless camps while soldiers hunted (adverb) through the forests behind her. Carrying the ancient (noun), she continued to (verb) the starving people abandoned by the kingdom.",
+    "The bandit rode (adverb) through the storm while protecting the royal (noun) from mercenaries chasing him across the borderlands. Though once feared as a (adjective) criminal, he now fought to (verb) the innocent (preposition) the collapsing kingdom.",
+    "The former thief stood (adverb) beside the villagers while his old gang surrounded the settlement beneath the moonlight. With the sacred (noun) hidden safely (preposition) the church walls, the (adjective) rebel prepared to (verb) against his past.",
+    "A (adjective) outlaw crossed (preposition) the frozen valleys to deliver medicine stolen from corrupt nobles to the dying villages below. Even as soldiers closed in (adverb), he continued to (verb) for people who had nothing left but hope and a single (noun).",
+    "The (adjective) rogue stood (preposition) the collapsing bridge while his old gang demanded the royal (noun) back from him. Refusing to (verb) another innocent life, he fought (adverb) against the people he once called brothers.",
+    "A (adjective) bandit climbed (preposition) the storm-battered cliffs while clutching the final (noun) needed to clear his name. Though hunted relentlessly, he continued to (verb) toward redemption as thunder crashed (adverb) across the skies.",
+    "A (adjective) bandit wandered (preposition) the ruined capital after escaping the gang that raised him from childhood. Though the crowds stared (adverb) at the scarred criminal, he chose to (verb) a life beyond violence with only a broken (noun) in hand.",
+    "The (adjective) scammer wandered (preposition) the ruined streets while angry crowds searched (adverb) for the man who stole their savings. Carrying the final (noun), he chose to (verb) the starving families instead of fleeing with the money.",
+    "The thief stood (preposition) the shattered church while his former allies demanded the royal (noun) hidden beneath the floorboards. Despite the (adjective) threats surrounding him, he refused to (verb) the frightened villagers and remained (adverb) beside them.",
+  ],
+}
 
 //This function will use the words inside the selectedWords array to update the story
 function updateStory() {
+  const currentTemplateList = storyTemplateList[currentBackground]
+
   const storyTemplate =
     //randomly select 1 story template from the array
-    storyTemplateList[Math.floor(Math.random() * storyTemplateList.length)]
+    currentTemplateList[Math.floor(Math.random() * currentTemplateList.length)]
 
   // replace every word class' word based on the words stored inside the selectedWords array
   const filledStory = storyTemplate
@@ -1653,16 +1688,59 @@ function toBeginning() {
     preposition: "",
     adverb: "",
   }
-  const storyTemplateList = [
-    "The (noun) (adverb) (verb) over the (adjective) cave (preposition) the dark mountain.",
-    "A (adjective) (noun) decided to (verb) (adverb) (preposition) the ancient ruins.",
-    "The (noun) (verb) (adverb) through the (adjective) forest (preposition) the hidden lake.",
-    "One (adjective) (noun) tried to (verb) (adverb) (preposition) the mysterious castle.",
-    "A (noun) began to (verb) (adverb) (preposition) the (adjective) valley.",
-  ]
+  //array of stories to later be updated by selected words. Stories chosen will be based on background
+  const storyTemplateList = {
+    "assets/background.png": [
+      "The knight marched (adverb) through the ruined valley to (verb) the sacred blade hidden beneath the mountain. With the (noun) raised high, the (adjective) warrior inspired the kingdom to rise once more (preposition) the ashes of war.",
+      "A lone hero stood (preposition) the burning gates while soldiers fled in fear around him. The (adjective) champion chose to (verb) the ancient (noun) as the people watched (adverb) from afar.",
+      "The crowd waited (adverb) beneath the castle walls as the knight climbed toward the dragon’s lair. Armed with only a battered (noun), the (adjective) hero prepared to (verb) the beast alone (preposition) the darkness above.",
+      "Though exhausted and wounded, the knight chose to (verb) the frightened villagers trapped within the collapsing city. The (adjective) defender carried the final (noun) safely (preposition) the raging flames while the survivors cheered (adverb).",
+      "Beneath the moonlit sky, the hero marched (preposition) the enemy fortress while his companions followed (adverb) behind him. The (adjective) warrior raised the royal (noun) and charged forward to (verb) the kingdom from destruction.",
+      "The people gathered (adverb) around the capital square as the knight returned victorious from exile. Holding the ancient (noun), the (adjective) champion vowed to (verb) justice across the realm (preposition) the years of suffering.",
+      "The warrior rode (preposition) the battlefield while the sound of victory bells echoed (adverb) through the capital. Carrying the sacred (noun), the (adjective) hero continued to (verb) hope across the war-torn realm.",
+      "The (adjective) champion crossed (preposition) the ruined bridge with the sacred (noun) raised high above his head. As the people celebrated (adverb) below, he prepared to (verb) the final enemy stronghold.",
+      "The (adjective) knight marched (preposition) the shattered battlefield while the soldiers cheered (adverb) behind him. Carrying the ancient (noun), he prepared to (verb) for the freedom of the kingdom.",
+      "A (adjective) warrior returned (preposition) the capital carrying the broken (noun) from the final battle. Though exhausted, he smiled (adverb) and continued to (verb) hope across the recovering kingdom.",
+    ],
+
+    "assets/background1.png": [
+      "The (adjective) dragon soared (preposition) the burning mountains while villages crumbled (adverb) beneath its shadow. Carrying the cursed (noun) within its claws, the beast prepared to (verb) the final kingdom.",
+      "A dragon marched (adverb) through the shattered kingdom carrying the broken (noun) between its massive teeth. The (adjective) beast continued to (verb) the land until even the rivers ran black with ash.",
+      "The mountains crumbled (adverb) as the dragon spread its wings across the horizon and darkened the sun. Guarding the sacred (noun), the (adjective) beast swore to (verb) every kingdom beneath the trembling skies.",
+      "The dragon soared (preposition) the blackened heavens while rivers boiled and forests collapsed (adverb) beneath its wings. With the sacred (noun) burning in its jaws, the (adjective) creature sought to (verb) all living kingdoms.",
+      "The (adjective) dragon roared (adverb) across the heavens while the earth split apart (preposition) the mountains below. Carrying the ancient (noun), the beast prepared to (verb) the world itself.",
+      "A (adjective) wyrm rose (preposition) the endless storm as thunder shattered the skies and oceans crashed against the land. With the cursed (noun) glowing beneath its claws, the creature began to (verb) the heavens and earth alike.",
+      "The (adjective) dragon climbed (preposition) the ruined cliffs while molten fire spilled (adverb) into the valleys below. Guarding the cursed (noun), the creature prepared to (verb) the last remaining kingdom.",
+      "The sky darkened (adverb) as the dragon circled (preposition) the burning fortress surrounded by thunder and falling debris. Beneath the creature’s (adjective) gaze, the final (noun) was about to (verb) forever.",
+      "The mountains trembled (adverb) as the dragon crawled (preposition) the ancient canyon with glowing fire pouring from its jaws. Holding the royal (noun), the (adjective) creature vowed to (verb) every city that defied it.",
+      "A (adjective) dragon trailed (preposition) the heavens while lightning tore through the skies and the ground collapsed beneath entire cities. The beast carried a blazing (noun) capable of helping it (verb) creation itself.",
+    ],
+
+    "assets/background2.png": [
+      "The (adjective) bandit rode (preposition) the abandoned roads while the old gang searched (adverb) for his trail. Carrying the stolen (noun), he chose to (verb) the villagers he once terrorized.",
+      "A (adjective) thief escaped (preposition) the lawless camps while soldiers hunted (adverb) through the forests behind her. Carrying the ancient (noun), she continued to (verb) the starving people abandoned by the kingdom.",
+      "The bandit rode (adverb) through the storm while protecting the royal (noun) from mercenaries chasing him across the borderlands. Though once feared as a (adjective) criminal, he now fought to (verb) the innocent (preposition) the collapsing kingdom.",
+      "The former thief stood (adverb) beside the villagers while his old gang surrounded the settlement beneath the moonlight. With the sacred (noun) hidden safely (preposition) the church walls, the (adjective) rebel prepared to (verb) against his past.",
+      "A (adjective) outlaw crossed (preposition) the frozen valleys to deliver medicine stolen from corrupt nobles to the dying villages below. Even as soldiers closed in (adverb), he continued to (verb) for people who had nothing left but hope and a single (noun).",
+      "The (adjective) rogue stood (preposition) the collapsing bridge while his old gang demanded the royal (noun) back from him. Refusing to (verb) another innocent life, he fought (adverb) against the people he once called brothers.",
+      "A (adjective) bandit climbed (preposition) the storm-battered cliffs while clutching the final (noun) needed to clear his name. Though hunted relentlessly, he continued to (verb) toward redemption as thunder crashed (adverb) across the skies.",
+      "A (adjective) bandit wandered (preposition) the ruined capital after escaping the gang that raised him from childhood. Though the crowds stared (adverb) at the scarred criminal, he chose to (verb) a life beyond violence with only a broken (noun) in hand.",
+      "The (adjective) scammer wandered (preposition) the ruined streets while angry crowds searched (adverb) for the man who stole their savings. Carrying the final (noun), he chose to (verb) the starving families instead of fleeing with the money.",
+      "The thief stood (preposition) the shattered church while his former allies demanded the royal (noun) hidden beneath the floorboards. Despite the (adjective) threats surrounding him, he refused to (verb) the frightened villagers and remained (adverb) beside them.",
+    ],
+  }
+
+  //This function will use the words inside the selectedWords array to update the story
   function updateStory() {
+    const currentTemplateList = storyTemplateList[currentBackground]
+
     const storyTemplate =
-      storyTemplateList[Math.floor(Math.random() * storyTemplateList.length)]
+      //randomly select 1 story template from the array
+      currentTemplateList[
+        Math.floor(Math.random() * currentTemplateList.length)
+      ]
+
+    // replace every word class' word based on the words stored inside the selectedWords array
     const filledStory = storyTemplate
       .replace("(noun)", selectedWords.noun)
       .replace("(adverb)", selectedWords.adverb)
@@ -1670,6 +1748,7 @@ function toBeginning() {
       .replace("(adjective)", selectedWords.adjective)
       .replace("(preposition)", selectedWords.preposition)
 
+    //the story text be the story after it is filled
     story.text(filledStory)
     storyLayer.draw()
   }
@@ -1683,7 +1762,6 @@ function toBeginning() {
     fill: "black",
     lineHeight: 1.3,
   })
-
   storyLayer.add(story)
   storyLayer.draw()
 
@@ -1827,6 +1905,10 @@ function randomFinal() {
   currentExpression = finalExpressions[expressions]
   bard.src = currentExpression
 }
+
+//These are a list of thematic words related to my three themes.
+// I wanted to make some special interactions with these words, but it felt too much in terms of scope
+/*
 const FantasyStory = [
   "Fishermen along the western coast speak of a woman clothed in seafoam who appears before great tempests. Whenever she is seen walking upon the waves, the wise sailors abandon their nets and return to shore before disaster strikes.",
   "Long ago, the people of Hollowmere buried a giant beneath the hills after he protected their village from a terrible war. Even now, the earth is said to tremble whenever danger draws near, as though the giant still stirs in his sleep.",
@@ -1994,6 +2076,6 @@ const banditAdverbs = [
   "opportunistically",
   "callously",
 ]
-
+*/
 travel.addEventListener("click", toBeginning)
 travel.addEventListener("click", changeBackground)
