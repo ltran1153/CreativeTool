@@ -97,20 +97,17 @@ function changeBackground() {
   background.style.backgroundImage = `url("${backgroundThemes[newBackground]}")`
 
   if (backgroundThemes[newBackground] === "assets/background.png") {
-    konvaStage.style.backgroundImage = 'url("assets/wordContainer1.png")'
-    konvaStage.style.filter = "brightness(1)"
+    konvaStage.style.backgroundImage = 'url("assets/wordContainer4.png")'
     ;((bard.src = "assets/bard1.png"),
       (bardDialogue.textContent = "Come onnn, everyone is watching"))
     rope.style.opacity = "0"
   } else if (backgroundThemes[newBackground] === "assets/background1.png") {
-    konvaStage.style.backgroundImage = 'url("assets/wordContainer2.png")'
-    konvaStage.style.filter = "brightness(1)"
+    konvaStage.style.backgroundImage = 'url("assets/wordContainer6.png")'
     bard.src = "assets/bard2.png"
     bardDialogue.textContent = "Oh Sh-"
     rope.style.opacity = "0"
   } else if (backgroundThemes[newBackground] === "assets/background2.png") {
-    konvaStage.style.backgroundImage = 'url("assets/wordContainer3.png")'
-    konvaStage.style.filter = "brightness(1)"
+    konvaStage.style.backgroundImage = 'url("assets/wordContainer5.png")'
     bard.src = "assets/bard4.png"
     bardDialogue.textContent = "bruh..."
     rope.style.opacity = "1"
