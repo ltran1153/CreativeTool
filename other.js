@@ -43,50 +43,59 @@ const fontBackground = {
   "assets/background.png": {
     fontSize: "20",
     fontFamily: "MedievalSharp",
-    fill: "#145c1c",
-    stroke: "black",
-    strokeWidth: 0.45,
+    fill: "#96f7a1",
+    stroke: "#16ff31",
+    strokeWidth: 0.25,
   },
   "assets/background1.png": {
     fontSize: "20",
     fontFamily: "Metal Mania",
-    fill: "darkred",
-    stroke: "black",
+    fill: "black",
+    stroke: "#8a5c37",
     strokeWidth: 1,
   },
   "assets/background2.png": {
     fontSize: "20",
     fontFamily: "Julee",
-    fill: "white",
-    stroke: "black",
+    fill: "#dadada",
+    stroke: "#a79e9e",
     strokeWidth: 1,
   },
 }
 
 const storyFont = {
   "assets/background.png": {
-    fontSize: "20",
-    fontFamily: "MedievalSharp",
-    fill: "#145c1c",
-    stroke: "black",
-    strokeWidth: 0.45,
+    fontSize: 29,
+    fontFamily: "Fondamento",
+    fill: "#26cc3a",
   },
   "assets/background1.png": {
-    fontSize: "20",
-    fontFamily: "Eagle Lake",
-    fill: "darkred",
-    stroke: "black",
-    strokeWidth: 1,
+    fontSize: 29,
+    fontFamily: "Fondamento",
+    fill: "black",
   },
   "assets/background2.png": {
-    fontSize: "20",
-    fontFamily: "Julee",
+    fontSize: 26,
+    fontFamily: "Fondamento",
     fill: "white",
-    stroke: "black",
-    strokeWidth: 1,
   },
 }
 
+const backgroundSound = {
+  "assets/background.png": "assets/Ambient.mp3",
+  "assets/background1.png": "assets/Ambient1.mp3",
+  "assets/background2.png": "assets/Ambient2.mp3",
+}
+const guitarBackground = {
+  "assets/background.png": "assets/Guitar1.mp3",
+  "assets/background1.png": "assets/Guitar2.mp3",
+  "assets/background2.png": "assets/Guitar.mp3",
+}
+const clickBackground = {
+  "assets/background.png": "assets/Click.mp3",
+  "assets/background1.png": "assets/click2.mp3",
+  "assets/background2.png": "assets/click1.mp3",
+}
 function changeBackground() {
   let newBackground
   do {
@@ -95,7 +104,9 @@ function changeBackground() {
   previousBackground = newBackground
   currentBackground = backgroundThemes[newBackground]
   background.style.backgroundImage = `url("${backgroundThemes[newBackground]}")`
-
+  ambient2.src = backgroundSound[currentBackground]
+  ambient2.currentTime = 0
+  ambient2.play()
   if (backgroundThemes[newBackground] === "assets/background.png") {
     konvaStage.style.backgroundImage = 'url("assets/wordContainer4.png")'
     ;((bard.src = "assets/bard1.png"),
@@ -112,4 +123,8 @@ function changeBackground() {
     bardDialogue.textContent = "bruh..."
     rope.style.opacity = "1"
   }
+
+  const newStoryFont = storyFont[currentBackground]
+
+  resetText.fill(newStoryFont.fill)
 }

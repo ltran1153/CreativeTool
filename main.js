@@ -1111,14 +1111,15 @@ function updateStory() {
 }
 
 //adjusting the story text to fit inside the konva stage and match the project's aesthetic
+const storyText = storyFont[currentBackground]
 const story = new Konva.Text({
   x: 65,
   y: 40,
   width: stage.width() - 65 * 2,
   height: stage.height() - 40 * 2,
-  fontSize: 30,
-  fontFamily: "Fondamento",
-  fill: "#000000",
+  fontSize: storyText.fontSize,
+  fontFamily: storyText.fontFamily,
+  fill: storyText.fill,
   lineHeight: 1.3,
   align: "center",
 })
@@ -1128,12 +1129,13 @@ storyLayer.draw()
 
 //Reset the tool to generate a new story.
 // the text for my reset button
+const newStoryFont = storyFont[currentBackground]
 const resetText = new Konva.Text({
   text: "New Story?",
 
   fontSize: 50,
   fontFamily: "Marck Script",
-  fill: "black",
+  fill: newStoryFont.fill,
 
   align: "center",
 })
@@ -1789,14 +1791,15 @@ function toBeginning() {
     story.text(filledStory)
     storyLayer.draw()
   }
+  const storyText = storyFont[currentBackground]
   const story = new Konva.Text({
     x: 65,
     y: 40,
     width: stage.width() - 65 * 2,
     height: stage.height() - 40 * 2,
-    fontSize: 30,
-    fontFamily: "Fondamento",
-    fill: "black",
+    fontSize: storyText.fontSize,
+    fontFamily: storyText.fontFamily,
+    fill: storyText.fill,
     lineHeight: 1.3,
     align: "center",
   })
@@ -1884,6 +1887,8 @@ const guitar = document.getElementById("guitar")
 
 //whenever the user selects a word, this sound will play
 function playClick() {
+  click.src = clickBackground[currentBackground]
+
   //resets sound clip to the beginning
   click.currentTime = 0
   click.play()
@@ -1900,6 +1905,8 @@ function playAmbient() {
 function playGuitar() {
   //pause ambient before playing guitar so sounds don't overlap
   ambient.pause()
+  guitar.src = guitarBackground[currentBackground]
+  guitar.currentTime = 0
   guitar.play()
 }
 
